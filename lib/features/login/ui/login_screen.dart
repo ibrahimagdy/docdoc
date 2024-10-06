@@ -1,10 +1,13 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:doctors_app/core/widgets/app_text_button.dart';
+import 'package:doctors_app/features/login/logic/login_cubit.dart';
 import 'package:doctors_app/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:doctors_app/features/login/ui/widgets/email_and_password.dart';
+import 'package:doctors_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:doctors_app/features/login/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -32,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 verticalSpace(36),
                 Column(
                   children: [
-                   const EmailAndPassword(),
+                    const EmailAndPassword(),
                     verticalSpace(16),
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
@@ -48,15 +51,15 @@ class LoginScreen extends StatelessWidget {
                     AppTextButton(
                       text: 'Login',
                       textStyle: TextStyles.font16WhiteSemiBold,
-                      onPressed: () {},
+                      onPressed: () {
+                        validateThenDoLogin(context);
+                      },
                     ),
                     verticalSpace(16),
                     const TermsAndConditionsText(),
                     verticalSpace(60),
-                    const Align(
-                      alignment: Alignment.center,
-                      child: DontHaveAccountText(),
-                    ),
+                    const DontHaveAccountText(),
+                    const LoginBlocListener(),
                   ],
                 ),
               ],
@@ -65,5 +68,11 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().login();
+    }
   }
 }

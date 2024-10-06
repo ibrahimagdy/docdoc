@@ -6,6 +6,8 @@ import 'package:doctors_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/home/ui/home_screen.dart';
+
 class AppRoutes {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -20,6 +22,10 @@ class AppRoutes {
                 create: (context) => getIt<LoginCubit>(),
                 child: const LoginScreen(),
               ),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
         );
       default:
         return MaterialPageRoute(
