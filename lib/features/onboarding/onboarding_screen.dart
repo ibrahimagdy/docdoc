@@ -1,3 +1,4 @@
+import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:doctors_app/features/onboarding/widgets/doc_logo_and_name.dart';
 import 'package:doctors_app/features/onboarding/widgets/doctor_image_and_text.dart';
@@ -18,9 +19,7 @@ class OnboardingScreen extends StatelessWidget {
             child: Column(
               children: [
                 const DocLogoAndName(),
-                SizedBox(height: 30.h),
                 const DoctorImageAndText(),
-                SizedBox(height: 10.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Column(
@@ -30,7 +29,7 @@ class OnboardingScreen extends StatelessWidget {
                         style: TextStyles.font14GreyRegular,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 30.h),
+                      verticalSpace(30),
                       const GetStartedButton(),
                     ],
                   ),
