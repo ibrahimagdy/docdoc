@@ -1,4 +1,3 @@
-import 'package:doctors_app/core/routing/app_routes.dart';
 import 'package:doctors_app/core/widgets/app_text_button.dart';
 import 'package:doctors_app/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/sign_up/ui/widgets/already_have_account_text.dart';
