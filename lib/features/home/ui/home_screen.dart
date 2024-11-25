@@ -27,12 +27,7 @@ class HomeScreen extends StatelessWidget {
               ),
               verticalSpace(16),
               const DoctorSpecialityListView(),
-              verticalSpace(23),
-              SeeAllWidget(
-                text: "Recommendation Doctor",
-                onTap: () {},
-              ),
-              verticalSpace(20),
+                verticalSpace(20),
               const DoctorsListView(),
             ],
           ),
