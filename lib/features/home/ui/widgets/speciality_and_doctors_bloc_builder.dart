@@ -19,38 +19,46 @@ class SpecialityAndDoctorsBlocBuilder extends StatelessWidget {
           current is SpecializationsError,
       builder: (context, state) {
         return state.maybeWhen(
-          specializationsLoading: () {
-            return const SizedBox(
-              height: 100,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          },
+          specializationsLoading: () => setupLoading(),
           specializationsSuccess: (specializationResponseModel) {
             var specializationList = specializationResponseModel;
-            return Expanded(
-              child: Column(
-                children: [
-                  DoctorSpecialityListView(
-                    specializationDataList: specializationList ?? [],
-                  ),
-                  verticalSpace(20),
-                  DoctorsListView(
-                    doctorsList: specializationList?[0]?.doctorsList,
-                  ),
-                ],
-              ),
-            );
+            return setupSuccess(specializationList);
           },
-          specializationsError: (errorHandler) {
-            return const SizedBox.shrink();
-          },
+          specializationsError: (errorHandler) => setupError(),
           orElse: () {
-            return const SizedBox.shrink();
+            return setupError();
           },
         );
       },
     );
   }
+}
+
+Widget setupLoading(){
+  return const SizedBox(
+    height: 100,
+    child: Center(
+      child: CircularProgressIndicator(),
+    ),
+  );
+}
+
+Widget setupSuccess(specializationList){
+  return Expanded(
+    child: Column(
+      children: [
+        DoctorSpecialityListView(
+          specializationDataList: specializationList ?? [],
+        ),
+        verticalSpace(20),
+        DoctorsListView(
+          doctorsList: specializationList?[0]?.doctorsList,
+        ),
+      ],
+    ),
+  );
+}
+
+Widget setupError(){
+  return const SizedBox.shrink();
 }
