@@ -23,6 +23,6 @@ abstract class ApiService {
     @Body() SignUpRequestBody signUpRequestBody,
   );
 
-  @GET(ApiConstants.specialization)
+  @GET(ApiConstants.specializationDoctors)
   Future<SpecializationsResponseModel> getSpecialization();
 }
