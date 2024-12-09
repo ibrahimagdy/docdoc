@@ -1,10 +1,12 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/styles.dart';
+import 'package:doctors_app/features/home/data/model/specialization_responses_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorItem extends StatelessWidget {
-  const DoctorItem({super.key});
+  final Doctors? doctors;
+  const DoctorItem({super.key, required this.doctors});
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +25,19 @@ class DoctorItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Dr. Randy Wigham',
+                  doctors?.name ?? 'Doctor',
                   style: TextStyles.font16DarkBlueBold,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
                 verticalSpace(8),
                 Text(
-                  'General | RSUD Gatot Subroto',
+                  '${doctors?.degree} | ${doctors?.phone}',
                   style: TextStyles.font12GreyRegular,
                 ),
                 verticalSpace(8),
                 Text(
-                  'Email@gmail.com',
+                  doctors?.email ?? 'Email',
                   style: TextStyles.font12GreyRegular,
                 ),
 

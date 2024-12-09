@@ -1,9 +1,8 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_blue_container.dart';
-import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_list_view.dart';
 import 'package:doctors_app/features/home/ui/widgets/home_top_bar.dart';
-import 'package:doctors_app/features/home/ui/widgets/recommendation_doctors/doctors_list_view.dart';
 import 'package:doctors_app/features/home/ui/widgets/see_all_widget.dart';
+import 'package:doctors_app/features/home/ui/widgets/speciality_and_doctors_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,9 +25,7 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {},
               ),
               verticalSpace(16),
-              const DoctorSpecialityListView(),
-                verticalSpace(20),
-              const DoctorsListView(),
+              const SpecialityAndDoctorsBlocBuilder(),
             ],
           ),
         ),
