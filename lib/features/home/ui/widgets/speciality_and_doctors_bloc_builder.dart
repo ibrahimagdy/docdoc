@@ -1,10 +1,9 @@
+import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/features/home/logic/home_cubit.dart';
+import 'package:doctors_app/features/home/logic/home_state.dart';
 import 'package:doctors_app/features/home/ui/widgets/recommendation_doctors/doctors_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/helpers/spacing.dart';
-import '../../logic/home_cubit.dart';
-import '../../logic/home_state.dart';
 import 'doctor_speciality/doctor_speciality_list_view.dart';
 
 class SpecialityAndDoctorsBlocBuilder extends StatelessWidget {
@@ -34,31 +33,31 @@ class SpecialityAndDoctorsBlocBuilder extends StatelessWidget {
   }
 }
 
-Widget setupLoading(){
-  return const SizedBox(
-    height: 100,
-    child: Center(
-      child: CircularProgressIndicator(),
+Widget setupLoading() {
+  return const SliverToBoxAdapter(
+    child: SizedBox(
+      height: 100,
+      child: Center(
+        child: CircularProgressIndicator(),
+      ),
     ),
   );
 }
 
-Widget setupSuccess(specializationList){
-  return Expanded(
-    child: Column(
-      children: [
-        DoctorSpecialityListView(
-          specializationDataList: specializationList ?? [],
-        ),
-        verticalSpace(20),
-        DoctorsListView(
-          doctorsList: specializationList?[0]?.doctorsList,
-        ),
-      ],
-    ),
+Widget setupSuccess(specializationList) {
+  return SliverList(
+    delegate: SliverChildListDelegate([
+      DoctorSpecialityListView(
+        specializationDataList: specializationList ?? [],
+      ),
+      verticalSpace(20),
+      DoctorsListView(
+        doctorsList: specializationList?[0]?.doctorsList,
+      ),
+    ]),
   );
 }
 
-Widget setupError(){
-  return const SizedBox.shrink();
+Widget setupError() {
+  return const SliverToBoxAdapter(child: SizedBox.shrink());
 }

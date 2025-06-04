@@ -15,16 +15,18 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          child: Column(
-            children: [
-              const HomeTopBar(),
-              const DoctorBlueContainer(),
-              verticalSpace(24),
-              SeeAllWidget(
-                text: "Doctor Speciality",
-                onTap: () {},
+          child: CustomScrollView(
+            slivers: [
+              const SliverToBoxAdapter(child: HomeTopBar()),
+              const SliverToBoxAdapter(child: DoctorBlueContainer()),
+              SliverToBoxAdapter(child: verticalSpace(24)),
+              SliverToBoxAdapter(
+                child: SeeAllWidget(
+                  text: "Doctor Speciality",
+                  onTap: () {},
+                ),
               ),
-              verticalSpace(16),
+              SliverToBoxAdapter(child: verticalSpace(16)),
               const SpecialityAndDoctorsBlocBuilder(),
             ],
           ),
