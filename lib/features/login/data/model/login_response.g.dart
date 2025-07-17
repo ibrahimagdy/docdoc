@@ -8,28 +8,32 @@ part of 'login_response.dart';
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
     LoginResponse(
-      message: json['message'] as String?,
-      userData: json['data'] == null
-          ? null
-          : UserData.fromJson(json['data'] as Map<String, dynamic>),
-      status: json['status'] as bool?,
-      code: (json['code'] as num?)?.toInt(),
+      success: json['success'] as bool,
+      message: json['messsage'] as String,
+      userData: UserData.fromJson(json['data'] as Map<String, dynamic>),
+      errors: json['errors'] as String?,
+      statusCode: (json['statusCode'] as num).toInt(),
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     <String, dynamic>{
-      'message': instance.message,
+      'success': instance.success,
+      'messsage': instance.message,
       'data': instance.userData,
-      'status': instance.status,
-      'code': instance.code,
+      'errors': instance.errors,
+      'statusCode': instance.statusCode,
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
-      token: json['token'] as String?,
-      username: json['username'] as String?,
+      fullName: json['fullName'] as String,
+      email: json['email'] as String,
+      userName: json['userName'] as String,
+      token: json['token'] as String,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
+      'fullName': instance.fullName,
+      'email': instance.email,
+      'userName': instance.userName,
       'token': instance.token,
-      'username': instance.username,
     };
