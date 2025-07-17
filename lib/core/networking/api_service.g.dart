@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://vcare.integration25.com/api';
+    baseUrl ??= 'http://doctorappointment.runasp.net/api/';
   }
 
   final Dio _dio;
@@ -37,7 +37,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/auth/login',
+          'Auth/login',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -71,7 +71,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/auth/register',
+          'Auth/register',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -84,39 +84,6 @@ class _ApiService implements ApiService {
     late SignUpResponse _value;
     try {
       _value = SignUpResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<SpecializationsResponseModel> getSpecialization() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<SpecializationsResponseModel>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/specialization/index',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late SpecializationsResponseModel _value;
-    try {
-      _value = SpecializationsResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
