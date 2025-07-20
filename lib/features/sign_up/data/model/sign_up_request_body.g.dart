@@ -8,20 +8,20 @@ part of 'sign_up_request_body.dart';
 
 SignUpRequestBody _$SignUpRequestBodyFromJson(Map<String, dynamic> json) =>
     SignUpRequestBody(
-      name: json['name'] as String,
+      fullName: json['fullName'] as String,
+      userName: json['userName'] as String,
       email: json['email'] as String,
-      phone: json['phone'] as String,
+      phoneNumber: json['phoneNumber'] as String,
       password: json['password'] as String,
-      passwordConfirmation: json['password_confirmation'] as String,
-      gender: (json['gender'] as num).toInt(),
+      confirmPassword: json['confirmPassword'] as String,
     );
 
 Map<String, dynamic> _$SignUpRequestBodyToJson(SignUpRequestBody instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'fullName': instance.fullName,
+      'userName': instance.userName,
       'email': instance.email,
-      'phone': instance.phone,
+      'phoneNumber': instance.phoneNumber,
       'password': instance.password,
-      'password_confirmation': instance.passwordConfirmation,
-      'gender': instance.gender,
+      'confirmPassword': instance.confirmPassword,
     };

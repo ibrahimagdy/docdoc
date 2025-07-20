@@ -1,4 +1,5 @@
 import 'package:doctors_app/core/helpers/app_regex.dart';
+import 'package:doctors_app/core/helpers/app_validation.dart';
 import 'package:doctors_app/features/login/logic/login_cubit.dart';
 import 'package:doctors_app/features/login/ui/widgets/password_validations.dart';
 import 'package:flutter/material.dart';
@@ -58,23 +59,13 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           AppTextFormField(
             hintText: 'Email',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
-              }
-            },
+            validator: validateEmail,
             controller: context.read<LoginCubit>().emailController,
           ),
           verticalSpace(16),
           AppTextFormField(
             hintText: 'Password',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
+            validator: validatePassword,
             controller: context.read<LoginCubit>().passwordController,
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(
