@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:doctors_app/features/login/data/model/login_request_body.dart';
-import 'package:doctors_app/features/login/data/model/login_response.dart';
-import 'package:doctors_app/features/sign_up/data/model/sign_up_request_body.dart';
-import 'package:doctors_app/features/sign_up/data/model/sign_up_response.dart';
+import 'package:doctors_app/features/auth/forgot_password/data/models/forgot_password_request_model.dart';
+import 'package:doctors_app/features/auth/forgot_password/data/models/forgot_password_response_model.dart';
+import 'package:doctors_app/features/auth/login/data/model/login_request_body.dart';
+import 'package:doctors_app/features/auth/login/data/model/login_response.dart';
+import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_request_body.dart';
+import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'api_constants.dart';
 
@@ -22,4 +24,8 @@ abstract class ApiService {
     @Body() SignUpRequestBody signUpRequestBody,
   );
 
+  @POST(ApiConstants.forgetPassword)
+  Future<ForgotPasswordResponseModel> forgotPassword(
+    @Body() ForgotPasswordRequestModel forgotPasswordRequestModel,
+  );
 }
