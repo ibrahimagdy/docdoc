@@ -16,23 +16,27 @@ class LoginBlocListener extends StatelessWidget {
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {
-        state.whenOrNull(loading: () {
-          showDialog(
-            context: context,
-            builder: (context) => const Center(
-              child: LoadingCircleIndicator(),
-            ),
-          );
-        }, success: (loginResponse) {
-          context.pop();
-          context.pushNamed(Routes.homeScreen);
-          CustomSnackBar.showSuccess(context, loginResponse.message);
-        }, error: (error) {
-          while (Navigator.of(context).canPop()) {
-            Navigator.of(context).pop();
-          }
-          CustomSnackBar.showError(context, error.getAllErrorMessages());
-        });
+        state.whenOrNull(
+          loading: () {
+            showDialog(
+              context: context,
+              builder: (context) => const Center(
+                child: LoadingCircleIndicator(),
+              ),
+            );
+          },
+          success: (loginResponse) {
+            context.pop();
+            context.pushNamed(Routes.homeScreen);
+            CustomSnackBar.showSuccess(context, loginResponse.message);
+          },
+          error: (error) {
+            while (Navigator.of(context).canPop()) {
+              Navigator.of(context).pop();
+            }
+            CustomSnackBar.showError(context, error.getAllErrorMessages());
+          },
+        );
       },
       child: const SizedBox.shrink(),
     );

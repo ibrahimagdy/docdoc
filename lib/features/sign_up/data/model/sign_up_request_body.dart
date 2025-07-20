@@ -4,21 +4,20 @@ part 'sign_up_request_body.g.dart';
 
 @JsonSerializable()
 class SignUpRequestBody {
-  final String name;
+  final String fullName;
+  final String userName;
   final String email;
-  final String phone;
+  final String phoneNumber;
   final String password;
-  @JsonKey(name: 'password_confirmation')
-  final String passwordConfirmation;
-  final int gender;
+  final String confirmPassword;
 
   SignUpRequestBody({
-    required this.name,
+    required this.fullName,
+    required this.userName,
     required this.email,
-    required this.phone,
+    required this.phoneNumber,
     required this.password,
-    required this.passwordConfirmation,
-    required this.gender,
+    required this.confirmPassword,
   });
 
   Map<String, dynamic> toJson() => _$SignUpRequestBodyToJson(this);

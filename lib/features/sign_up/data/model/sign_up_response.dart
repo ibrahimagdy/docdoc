@@ -3,17 +3,20 @@ part 'sign_up_response.g.dart';
 
 @JsonSerializable()
 class SignUpResponse {
-  final String? message;
+  final bool success;
+  @JsonKey(name: 'messsage')
+  final String message;
   @JsonKey(name: 'data')
-  final UserData? userData;
-  final bool? status;
-  final int? code;
+  final UserData userData;
+  final String? errors;
+  final int statusCode;
 
   SignUpResponse({
-    this.message,
-    this.userData,
-    this.status,
-    this.code,
+    required this.success,
+    required this.message,
+    required this.userData,
+    this.errors,
+    required this.statusCode,
   });
 
   factory SignUpResponse.fromJson(Map<String, dynamic> json) =>
@@ -22,10 +25,17 @@ class SignUpResponse {
 
 @JsonSerializable()
 class UserData {
-  final String? token;
-  final String? username;
+  final String fullName;
+  final String email;
+  final String userName;
+  final String token;
 
-  UserData({this.token, this.username});
+  UserData({
+    required this.fullName,
+    required this.email,
+    required this.userName,
+    required this.token,
+  });
 
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);

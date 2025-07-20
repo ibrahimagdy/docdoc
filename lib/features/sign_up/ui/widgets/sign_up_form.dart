@@ -1,11 +1,11 @@
+import 'package:doctors_app/core/helpers/app_regex.dart';
+import 'package:doctors_app/core/helpers/app_validation.dart';
+import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/widgets/app_text_form_field.dart';
+import 'package:doctors_app/features/login/ui/widgets/password_validations.dart';
 import 'package:doctors_app/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/helpers/app_regex.dart';
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/widgets/app_text_form_field.dart';
-import '../../../login/ui/widgets/password_validations.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -25,11 +25,13 @@ class _SignUpFormState extends State<SignUpForm> {
   bool hasMinLength = false;
 
   late TextEditingController passwordController;
+  late SignUpCubit cubit;
 
   @override
   void initState() {
     super.initState();
-    passwordController = context.read<SignUpCubit>().passwordController;
+    cubit = context.read<SignUpCubit>();
+    passwordController = cubit.passwordController;
     setupPasswordControllerListener();
   }
 
@@ -59,47 +61,33 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         children: [
           AppTextFormField(
-            hintText: 'Name',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid Name';
-              }
-            },
-            controller: context.read<SignUpCubit>().nameController,
+            hintText: 'Full Name',
+            validator: validateName,
+            controller: cubit.fullNameController,
+          ),
+          verticalSpace(16),
+          AppTextFormField(
+            hintText: 'User Name',
+            validator: validateUsername,
+            controller: cubit.userNameController,
           ),
           verticalSpace(16),
           AppTextFormField(
             hintText: 'Phone',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPhoneNumberValid(value)) {
-                return 'Please enter a valid phone number';
-              }
-            },
-            controller: context.read<SignUpCubit>().phoneController,
+            validator: validateEgyptianPhoneNumber,
+            controller: cubit.phoneController,
           ),
           verticalSpace(16),
           AppTextFormField(
             hintText: 'Email',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
-              }
-            },
-            controller: context.read<SignUpCubit>().emailController,
+            validator: validateEmail,
+            controller: cubit.emailController,
           ),
           verticalSpace(16),
           AppTextFormField(
             hintText: 'Password',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
-            controller: context.read<SignUpCubit>().passwordController,
+            validator: validatePassword,
+            controller: cubit.passwordController,
             isObscureText: isPasswordObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -115,15 +103,12 @@ class _SignUpFormState extends State<SignUpForm> {
           verticalSpace(16),
           AppTextFormField(
             hintText: 'Password Confirmation',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-              else if (value != passwordController.text) {
-                return 'Passwords do not match';
-              }
-            },
-            controller: context.read<SignUpCubit>().passwordConfirmationController,
+            validator: (value) => validateConfirmPassword(
+              value,
+              cubit.passwordController.text,
+            ),
+            controller:
+                context.read<SignUpCubit>().passwordConfirmationController,
             isObscureText: isPasswordConfirmationObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
