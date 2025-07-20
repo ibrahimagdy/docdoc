@@ -2,7 +2,7 @@ class ApiConstants{
   static const String apiBaseUrl = 'http://doctorappointment.runasp.net/api/';
   static const String login = 'Auth/login';
   static const String signUp = 'Auth/register';
-  static const String specializationDoctors = '/specialization/index';
+  static const String forgetPassword = 'Auth/forgetPassword';
 }
 
 class ApiErrors {
