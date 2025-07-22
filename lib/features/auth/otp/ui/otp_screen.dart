@@ -1,6 +1,7 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/styles.dart';
-import 'package:doctors_app/features/auth/otp/ui/otp_form.dart';
+import 'package:doctors_app/features/auth/otp/ui/widgets/otp_bloc_listener.dart';
+import 'package:doctors_app/features/auth/otp/ui/widgets/otp_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,6 +28,7 @@ class OtpScreen extends StatelessWidget {
               ),
               verticalSpace(64),
               const Expanded(child: OtpForm()),
+              const OtpBlocListener(),
             ],
           ),
         ),

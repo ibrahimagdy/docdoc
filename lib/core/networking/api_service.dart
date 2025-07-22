@@ -3,6 +3,8 @@ import 'package:doctors_app/features/auth/forgot_password/data/models/forgot_pas
 import 'package:doctors_app/features/auth/forgot_password/data/models/forgot_password_response_model.dart';
 import 'package:doctors_app/features/auth/login/data/model/login_request_body.dart';
 import 'package:doctors_app/features/auth/login/data/model/login_response.dart';
+import 'package:doctors_app/features/auth/otp/data/models/verify_otp_request_model.dart';
+import 'package:doctors_app/features/auth/otp/data/models/verify_otp_response_model.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_request_body.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_response.dart';
 import 'package:retrofit/retrofit.dart';
@@ -27,5 +29,10 @@ abstract class ApiService {
   @POST(ApiConstants.forgetPassword)
   Future<ForgotPasswordResponseModel> forgotPassword(
     @Body() ForgotPasswordRequestModel forgotPasswordRequestModel,
+  );
+
+  @POST(ApiConstants.otpVerification)
+  Future<VerifyOtpResponseModel> otpVerification(
+    @Body() VerifyOtpRequestModel verifyOtpRequestModel,
   );
 }

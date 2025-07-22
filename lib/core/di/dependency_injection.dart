@@ -5,6 +5,8 @@ import 'package:doctors_app/features/auth/forgot_password/data/repo/forgot_passw
 import 'package:doctors_app/features/auth/forgot_password/logic/forgot_password_cubit.dart';
 import 'package:doctors_app/features/auth/login/data/repos/login_repo.dart';
 import 'package:doctors_app/features/auth/login/logic/login_cubit.dart';
+import 'package:doctors_app/features/auth/otp/data/repo/verify_otp_repo.dart';
+import 'package:doctors_app/features/auth/otp/logic/verify_otp_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/data/repos/sign_up_repo.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -26,5 +28,9 @@ Future<void> setupGetIt() async {
   /// forgot password
   getIt.registerLazySingleton<ForgotPasswordRepo>(()=> ForgotPasswordRepo(getIt()));
   getIt.registerFactory<ForgotPasswordCubit>(()=> ForgotPasswordCubit(getIt()));
+
+  /// otp
+  getIt.registerLazySingleton<VerifyOtpRepo>(()=> VerifyOtpRepo(getIt()));
+  getIt.registerFactory<VerifyOtpCubit>(()=> VerifyOtpCubit(getIt()));
 
 }

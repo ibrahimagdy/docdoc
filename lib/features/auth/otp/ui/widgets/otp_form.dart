@@ -1,7 +1,9 @@
-import 'package:doctors_app/core/theming/colors.dart';
+import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:doctors_app/core/widgets/app_text_button.dart';
 import 'package:doctors_app/core/widgets/custom_snack_bar.dart';
+import 'package:doctors_app/features/auth/otp/data/models/verify_otp_request_model.dart';
+import 'package:doctors_app/features/auth/otp/logic/verify_otp_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +17,7 @@ class OtpForm extends StatefulWidget {
 }
 
 class _OtpFormState extends State<OtpForm> {
-  //late VerifyOtpCubit cubit;
+  late VerifyOtpCubit cubit;
   final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
   final List<TextEditingController> _controllers =
       List.generate(4, (_) => TextEditingController());
@@ -23,7 +25,7 @@ class _OtpFormState extends State<OtpForm> {
   @override
   void initState() {
     super.initState();
-    //cubit = BlocProvider.of<VerifyOtpCubit>(context);
+    cubit = BlocProvider.of<VerifyOtpCubit>(context);
     for (var controller in _controllers) {
       controller.addListener(_updateOtp);
     }
@@ -31,7 +33,7 @@ class _OtpFormState extends State<OtpForm> {
 
   void _updateOtp() {
     final otp = _controllers.map((c) => c.text).join();
-    //context.read<VerifyOtpCubit>().enteredOtp = otp;
+    context.read<VerifyOtpCubit>().enteredOtp = otp;
   }
 
   void _nextField({required String value, required int index}) {
@@ -52,13 +54,13 @@ class _OtpFormState extends State<OtpForm> {
 
     if (isValid) {
       final otp = _controllers.map((c) => c.text).join();
-      // final email = await SharedPrefHelper.getEmail();
-      // final requestModel = VerifyOtpRequestModel(
-      //   email: email,
-      //   otp: otp,
-      // );
-      // await SharedPrefHelper.setSecuredString('otp', otp);
-      // cubit.verifyOtp(requestModel);
+      final email = await SharedPrefHelper.getEmail();
+      final requestModel = VerifyOtpRequestModel(
+        email: email,
+        otpCode: otp,
+      );
+      await SharedPrefHelper.setSecuredString('otp', otp);
+      cubit.verifyOtp(requestModel);
     } else {
       CustomSnackBar.showError(
         context,
@@ -99,7 +101,7 @@ class _OtpFormState extends State<OtpForm> {
         const Spacer(),
         AppTextButton(
           onPressed: _verifyOtp,
-          text: 'Continue',
+          text: 'Submit',
           textStyle: TextStyles.font16WhiteSemiBold,
         ),
       ],
