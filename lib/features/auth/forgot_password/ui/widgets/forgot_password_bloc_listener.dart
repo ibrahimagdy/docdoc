@@ -1,3 +1,5 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/widgets/custom_snack_bar.dart';
 import 'package:doctors_app/core/widgets/loading_circle_indicator.dart';
 import 'package:doctors_app/features/auth/forgot_password/logic/forgot_password_cubit.dart';
@@ -23,8 +25,8 @@ class ForgotPasswordBlocListener extends StatelessWidget {
           },
           success: (data) {
             Navigator.pop(context);
+            context.pushReplacementNamed(Routes.otpScreen);
             CustomSnackBar.showInfo(context, data.data);
-            //context.pushNamed(Routes.otpScreen);
           },
           error: (error) {
             Navigator.pop(context);
