@@ -1,3 +1,5 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/widgets/custom_snack_bar.dart';
 import 'package:doctors_app/core/widgets/loading_circle_indicator.dart';
 import 'package:doctors_app/features/auth/otp/logic/verify_otp_cubit.dart';
@@ -23,8 +25,8 @@ class OtpBlocListener extends StatelessWidget {
           },
           success: (data) {
             Navigator.pop(context);
-            CustomSnackBar.showInfo(context, data.userData.message);
-            //context.pushNamed(Routes.resetPasswordScreen);
+            context.pushReplacementNamed(Routes.resetPasswordScreen);
+            CustomSnackBar.showSuccess(context, data.userData.message);
           },
           error: (error) {
             Navigator.pop(context);
