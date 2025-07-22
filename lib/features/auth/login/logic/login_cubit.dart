@@ -1,4 +1,3 @@
-import 'package:doctors_app/core/helpers/constants.dart';
 import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
 import 'package:doctors_app/core/networking/dio_factory.dart';
 import 'package:doctors_app/features/auth/login/data/model/login_request_body.dart';

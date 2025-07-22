@@ -3,6 +3,7 @@ class ApiConstants{
   static const String login = 'Auth/login';
   static const String signUp = 'Auth/register';
   static const String forgetPassword = 'Auth/forgetPassword';
+  static const String otpVerification = 'Auth/otpVerification';
 }
 
 class ApiErrors {
