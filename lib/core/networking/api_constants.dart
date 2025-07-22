@@ -4,6 +4,7 @@ class ApiConstants{
   static const String signUp = 'Auth/register';
   static const String forgetPassword = 'Auth/forgetPassword';
   static const String otpVerification = 'Auth/otpVerification';
+  static const String resetPassword = 'Auth/resetPassword';
 }
 
 class ApiErrors {

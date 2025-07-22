@@ -54,7 +54,6 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(32),
                     AppTextButton(
                       text: 'Login',
-                      textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
                         validateThenDoLogin(context);
                       },

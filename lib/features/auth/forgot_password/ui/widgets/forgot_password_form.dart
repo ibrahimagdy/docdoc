@@ -58,7 +58,6 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           AppTextButton(
             text: 'Reset Password',
             onPressed: _submitForm,
-            textStyle: TextStyles.font16WhiteSemiBold,
           ),
         ],
       ),

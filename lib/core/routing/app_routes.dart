@@ -6,6 +6,8 @@ import 'package:doctors_app/features/auth/login/logic/login_cubit.dart';
 import 'package:doctors_app/features/auth/login/ui/login_screen.dart';
 import 'package:doctors_app/features/auth/otp/logic/verify_otp_cubit.dart';
 import 'package:doctors_app/features/auth/otp/ui/otp_screen.dart';
+import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cubit.dart';
+import 'package:doctors_app/features/auth/reset_password/ui/reset_password_screen.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
@@ -46,6 +48,13 @@ class AppRoutes {
           builder: (context) => BlocProvider(
             create: (context) => getIt<VerifyOtpCubit>(),
             child: const OtpScreen(),
+          ),
+        );
+      case Routes.resetPasswordScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<ResetPasswordCubit>(),
+            child: const ResetPasswordScreen(),
           ),
         );
       case Routes.homeScreen:

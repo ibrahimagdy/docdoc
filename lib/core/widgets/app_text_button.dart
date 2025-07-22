@@ -1,4 +1,5 @@
 import 'package:doctors_app/core/theming/colors.dart';
+import 'package:doctors_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,7 +11,7 @@ class AppTextButton extends StatelessWidget {
   final double? width;
   final double? height;
   final VoidCallback onPressed;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   const AppTextButton({
     super.key,
@@ -21,7 +22,7 @@ class AppTextButton extends StatelessWidget {
     this.height,
     required this.text,
     required this.onPressed,
-    required this.textStyle,
+    this.textStyle,
   });
 
   @override
@@ -51,7 +52,7 @@ class AppTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: textStyle,
+        style: textStyle?? TextStyles.font16WhiteSemiBold,
       ),
     );
   }

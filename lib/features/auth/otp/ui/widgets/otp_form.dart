@@ -1,5 +1,4 @@
 import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
-import 'package:doctors_app/core/theming/styles.dart';
 import 'package:doctors_app/core/widgets/app_text_button.dart';
 import 'package:doctors_app/core/widgets/custom_snack_bar.dart';
 import 'package:doctors_app/features/auth/otp/data/models/verify_otp_request_model.dart';
@@ -102,7 +101,6 @@ class _OtpFormState extends State<OtpForm> {
         AppTextButton(
           onPressed: _verifyOtp,
           text: 'Submit',
-          textStyle: TextStyles.font16WhiteSemiBold,
         ),
       ],
     );
