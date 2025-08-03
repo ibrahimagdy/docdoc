@@ -25,7 +25,7 @@ class SignUpBlocListener extends StatelessWidget {
           },
           success: (signUpResponse) {
             context.pop();
-            context.pushNamed(Routes.homeScreen);
+            context.pushNamed(Routes.appLayout);
             CustomSnackBar.showSuccess(context, signUpResponse.message);
           },
           error: (error) {
