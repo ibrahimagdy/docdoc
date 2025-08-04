@@ -9,6 +9,9 @@ class ColorManger{
   static const Color lighterGrey = Color(0XFFEDEDED);
   static const Color lightestGrey = Color(0XFFFDFDFF);
   static const Color moreLighterGrey = Color(0XFFF5F5F5);
+  static const Color greyContainer = Color(0XFFF8F8F8);
+  static const Color greyDivider = Color(0XFFE0E0E0);
   static const Color white = Colors.white;
   static const Color black = Colors.black;
+  static const Color otherBlack = Color(0XFF121212);
 }
