@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                             child: IntrinsicHeight(
                               child: Column(
                                 children: [
-                                  verticalSpace(98),
+                                  verticalSpace(90),
                                   const ProfileInfo(),
                                   verticalSpace(24),
                                   const ProfileTabs(),

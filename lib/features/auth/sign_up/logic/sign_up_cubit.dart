@@ -1,3 +1,4 @@
+import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_request_body.dart';
 import 'package:doctors_app/features/auth/sign_up/data/repos/sign_up_repo.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_state.dart';
@@ -14,7 +15,8 @@ class SignUpCubit extends Cubit<SignUpState> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController passwordConfirmationController = TextEditingController();
+  TextEditingController passwordConfirmationController =
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   void signUp() async {
@@ -30,7 +32,12 @@ class SignUpCubit extends Cubit<SignUpState> {
       ),
     );
     response.when(
-      success: (signUpResponse) {
+      success: (signUpResponse) async {
+        await SharedPrefHelper.saveUserDetails(
+          id: '',
+          userName: signUpResponse.userData.userName,
+          email: signUpResponse.userData.email,
+        );
         emit(SignUpState.success(signUpResponse));
       },
       failure: (error) {

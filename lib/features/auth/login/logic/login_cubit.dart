@@ -26,6 +26,11 @@ class LoginCubit extends Cubit<LoginState> {
     response.when(
       success: (loginResponse) async{
         await saveUserToken(loginResponse.userData.token);
+        await SharedPrefHelper.saveUserDetails(
+          id: '',
+          userName: loginResponse.userData.userName,
+          email: loginResponse.userData.email,
+        );
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {
