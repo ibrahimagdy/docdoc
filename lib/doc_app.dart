@@ -19,6 +19,13 @@ class DocApp extends StatelessWidget{
           theme: ThemeData(
             primaryColor: ColorManger.mainBlue,
             scaffoldBackgroundColor: Colors.white,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: ColorManger.white,
+              centerTitle: true,
+              iconTheme: IconThemeData(
+                color: ColorManger.darkBlue
+              ),
+            )
           ),
           initialRoute: isLoggedInUser ? Routes.appLayout : Routes.onBoardingScreen,
           onGenerateRoute: appRoutes.generateRoute,
