@@ -1,10 +1,12 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/colors.dart';
-import 'package:doctors_app/features/profile/ui/widgets/change_profile_pic.dart';
-import 'package:doctors_app/features/profile/ui/widgets/profile_app_bar.dart';
-import 'package:doctors_app/features/profile/ui/widgets/profile_tabs.dart';
-import 'package:doctors_app/features/profile/ui/widgets/profile_info.dart';
-import 'package:doctors_app/features/profile/ui/widgets/profile_list_tiles.dart';
+import 'package:doctors_app/features/profile/ui/profile_widgets/change_profile_pic.dart';
+import 'package:doctors_app/features/profile/ui/profile_widgets/profile_app_bar.dart';
+import 'package:doctors_app/features/profile/ui/profile_widgets/profile_info.dart';
+import 'package:doctors_app/features/profile/ui/profile_widgets/profile_list_tiles.dart';
+import 'package:doctors_app/features/profile/ui/profile_widgets/profile_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -61,7 +63,15 @@ class ProfileScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const ChangeProfilePic(),
+                  Positioned(
+                    top: -60.h,
+                    left: 0,
+                    right: 0,
+                    child: GestureDetector(
+                      onTap: () => context.pushNamed(Routes.personalInfoScreen),
+                      child: const ChangeProfilePic(),
+                    ),
+                  ),
                 ],
               ),
             ),
