@@ -2,6 +2,7 @@ import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DoctorItem extends StatelessWidget {
   const DoctorItem({super.key});
@@ -23,20 +24,25 @@ class DoctorItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Doctor',
+                  'Dr. Randy Wigham',
                   style: TextStyles.font16DarkBlueBold,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
                 verticalSpace(8),
                 Text(
-                  '0114934834343',
+                  'General | RSUD Gatot Subroto',
                   style: TextStyles.font12GreyRegular,
                 ),
                 verticalSpace(8),
-                Text(
-                  'Email',
-                  style: TextStyles.font12GreyRegular,
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/svgs/star.svg'),
+                    Text(
+                      '4.8 (4,279 reviews)',
+                      style: TextStyles.font12GreyRegular,
+                    ),
+                  ],
                 ),
 
               ],
