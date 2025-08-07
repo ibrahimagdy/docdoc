@@ -9,6 +9,7 @@ import 'package:doctors_app/features/auth/reset_password/data/models/reset_passw
 import 'package:doctors_app/features/auth/reset_password/data/models/reset_password_response_model.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_request_body.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_response.dart';
+import 'package:doctors_app/features/profile/data/models/get_profile_patient_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'api_constants.dart';
 
@@ -41,5 +42,10 @@ abstract class ApiService {
   @POST(ApiConstants.resetPassword)
   Future<ResetPasswordResponseModel> resetPassword(
     @Body() ResetPasswordRequestModel resetPasswordRequestModel,
+  );
+
+  @GET(ApiConstants.profilePatient)
+  Future<GetProfilePatientResponse> profilePatient(
+    @Header('Authorization') String token,
   );
 }
