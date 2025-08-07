@@ -27,7 +27,10 @@ class LoginBlocListener extends StatelessWidget {
           },
           success: (loginResponse) {
             context.pop();
-            context.pushReplacementNamed(Routes.appLayout);
+            context.pushNamedAndRemoveUntil(
+              Routes.appLayout,
+              predicate: (Route<dynamic> route) => false,
+            );
             CustomSnackBar.showSuccess(context, loginResponse.message);
           },
           error: (error) {

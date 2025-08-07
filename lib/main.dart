@@ -19,8 +19,16 @@ void main() async {
 }
 
 checkIfLoggedInUser() async {
-  String? userToken =
-  await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  bool isFirstTime = await SharedPrefHelper.getBool(SharedPrefKeys.isFirstTime, defaultValue: true);
+
+  if (isFirstTime) {
+    await SharedPrefHelper.clearAllSecuredData();
+    await SharedPrefHelper.setData(SharedPrefKeys.isFirstTime, false);
+    isLoggedInUser = false;
+    return;
+  }
+
+  String? userToken = await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
   if (!userToken.isNullOrEmpty()) {
     isLoggedInUser = true;
   } else {
