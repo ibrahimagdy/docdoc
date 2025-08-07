@@ -1,7 +1,9 @@
-import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
+import 'package:doctors_app/core/helpers/app_validation.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/widgets/app_text_form_field.dart';
+import 'package:doctors_app/features/profile/logic/profile_patient_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonalInfoForm extends StatefulWidget {
   const PersonalInfoForm({super.key});
@@ -12,38 +14,37 @@ class PersonalInfoForm extends StatefulWidget {
 
 class _PersonalInfoFormState extends State<PersonalInfoForm> {
 
-  final TextEditingController userNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
+  late ProfilePatientCubit cubit;
 
   @override
   void initState() {
     super.initState();
-    _loadUserData();
-  }
-
-  Future<void> _loadUserData() async {
-    final userDetails = await SharedPrefHelper.getUserDetails();
-    setState(() {
-      userNameController.text = userDetails['userName'] ?? '';
-      emailController.text = userDetails['email'] ?? '';
-    });
+    cubit = context.read<ProfilePatientCubit>();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppTextFormField(
-          controller: userNameController,
-        ),
-        verticalSpace(16),
-        AppTextFormField(
-          controller: emailController,
-        ),
-        verticalSpace(16),
-        const AppTextFormField(),
-        verticalSpace(24),
-      ],
+    return Form(
+      key: cubit.formKey,
+      child: Column(
+        children: [
+          AppTextFormField(
+            controller: cubit.userNameController,
+            validator: validateUsername,
+          ),
+          verticalSpace(16),
+          AppTextFormField(
+            controller: cubit.emailController,
+            validator: validateEmail,
+          ),
+          verticalSpace(16),
+          AppTextFormField(
+            controller: cubit.phoneController,
+            validator: validateEgyptianPhoneNumber,
+          ),
+          verticalSpace(24),
+        ],
+      ),
     );
   }
 }

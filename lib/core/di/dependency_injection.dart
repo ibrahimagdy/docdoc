@@ -11,6 +11,8 @@ import 'package:doctors_app/features/auth/reset_password/data/repo/reset_passwor
 import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/data/repos/sign_up_repo.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:doctors_app/features/profile/data/repos/profile_patient_repo.dart';
+import 'package:doctors_app/features/profile/logic/profile_patient_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -38,4 +40,8 @@ Future<void> setupGetIt() async {
   /// reset password
   getIt.registerLazySingleton<ResetPasswordRepo>(()=> ResetPasswordRepo(getIt()));
   getIt.registerFactory<ResetPasswordCubit>(()=> ResetPasswordCubit(getIt()));
+
+  /// profile patient
+  getIt.registerLazySingleton<ProfilePatientRepo>(()=> ProfilePatientRepo(getIt()));
+  getIt.registerFactory<ProfilePatientCubit>(()=> ProfilePatientCubit(getIt()));
 }
