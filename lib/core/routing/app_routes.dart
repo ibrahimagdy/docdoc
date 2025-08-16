@@ -62,7 +62,10 @@ class AppRoutes {
         );
       case Routes.appLayout:
         return MaterialPageRoute(
-          builder: (context) => const AppLayout(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<ProfilePatientCubit>(),
+            child: const AppLayout(),
+          ),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
