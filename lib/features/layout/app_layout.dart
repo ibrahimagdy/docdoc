@@ -1,8 +1,11 @@
+import 'package:doctors_app/core/di/dependency_injection.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/layout/widgets/bottom_nav_item.dart';
+import 'package:doctors_app/features/profile/logic/profile_patient_cubit.dart';
 import 'package:doctors_app/features/profile/ui/profile_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +24,10 @@ class _AppLayoutState extends State<AppLayout> {
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
-    const ProfileScreen(),
+    BlocProvider(
+      create: (context) => getIt<ProfilePatientCubit>(),
+      child: const ProfileScreen(),
+    ),
   ];
 
   void onItemTapped(int index) {

@@ -2,12 +2,15 @@ import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/colors.dart';
+import 'package:doctors_app/features/profile/logic/profile_patient_cubit.dart';
+import 'package:doctors_app/features/profile/logic/profile_patient_state.dart';
 import 'package:doctors_app/features/profile/ui/profile_widgets/change_profile_pic.dart';
 import 'package:doctors_app/features/profile/ui/profile_widgets/profile_app_bar.dart';
 import 'package:doctors_app/features/profile/ui/profile_widgets/profile_info.dart';
 import 'package:doctors_app/features/profile/ui/profile_widgets/profile_list_tiles.dart';
 import 'package:doctors_app/features/profile/ui/profile_widgets/profile_tabs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -69,7 +72,17 @@ class ProfileScreen extends StatelessWidget {
                     right: 0,
                     child: GestureDetector(
                       onTap: () => context.pushNamed(Routes.personalInfoScreen),
-                      child: const ChangeProfilePic(),
+                      child: BlocBuilder<ProfilePatientCubit, ProfilePatientState>(
+                        builder: (context, state) {
+                          final profileImageUrl = context
+                              .read<ProfilePatientCubit>()
+                              .currentUserData
+                              ?.profileImage;
+                          return ChangeProfilePic(
+                            profileImageUrl: profileImageUrl,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],

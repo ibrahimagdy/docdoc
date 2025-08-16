@@ -24,6 +24,7 @@ class ProfilePatientCubit extends Cubit<ProfilePatientState> {
     final result = await _profilePatientRepo.profilePatient();
     result.when(
       success: (profilePatientResponse) {
+        setUserData(profilePatientResponse.userData);
         emit(ProfilePatientState.profilePatientSuccess(profilePatientResponse));
       },
       failure: (error) {

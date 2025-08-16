@@ -64,6 +64,8 @@ dependencies:
   flutter_secure_storage: ^4.2.1
   # Converts already built widgets into skeleton loaders with no extra effort.
   skeletonizer: ^1.4.3
+  # Flutter library to load and cache network images.
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
