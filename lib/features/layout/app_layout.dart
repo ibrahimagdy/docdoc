@@ -29,7 +29,6 @@ class _AppLayoutState extends State<AppLayout> {
   @override
   void initState() {
     super.initState();
-    // جلب بيانات البروفايل عند تحميل الـ Layout
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<ProfilePatientCubit>().getProfileData();
     });

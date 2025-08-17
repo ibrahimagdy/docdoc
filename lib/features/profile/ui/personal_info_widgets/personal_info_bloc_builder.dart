@@ -25,7 +25,7 @@ class _PersonalInfoBlocBuilderState extends State<PersonalInfoBlocBuilder> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfilePatientCubit, ProfilePatientState>(
       builder: (context, state) {
-        return state.when(
+        return state.maybeWhen(
           initial: () => const PersonalInfoSkeleton(),
           profilePatientLoading: () => const PersonalInfoSkeleton(),
           profilePatientSuccess: (response) {
@@ -46,6 +46,7 @@ class _PersonalInfoBlocBuilderState extends State<PersonalInfoBlocBuilder> {
               const PersonalInfoForm(),
             ],
           ),
+          orElse: () => const PersonalInfoForm(),
         );
       },
     );

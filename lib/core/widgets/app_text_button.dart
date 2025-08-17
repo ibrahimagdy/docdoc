@@ -10,7 +10,7 @@ class AppTextButton extends StatelessWidget {
   final double? verticalPadding;
   final double? width;
   final double? height;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final TextStyle? textStyle;
 
   const AppTextButton({

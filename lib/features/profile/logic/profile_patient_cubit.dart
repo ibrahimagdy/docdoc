@@ -1,8 +1,11 @@
+import 'dart:io';
+import 'package:doctors_app/core/networking/api_error_model.dart';
 import 'package:doctors_app/features/profile/data/models/get_profile_patient_response.dart';
 import 'package:doctors_app/features/profile/data/repos/profile_patient_repo.dart';
 import 'package:doctors_app/features/profile/logic/profile_patient_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfilePatientCubit extends Cubit<ProfilePatientState> {
   final ProfilePatientRepo _profilePatientRepo;
@@ -31,6 +34,75 @@ class ProfilePatientCubit extends Cubit<ProfilePatientState> {
         emit(ProfilePatientState.profilePatientError(error));
       },
     );
+  }
+
+  Future<void> uploadProfileImage() async {
+    try {
+      final ImagePicker picker = ImagePicker();
+
+      final XFile? image = await picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 85,
+      );
+
+      if (image == null) return;
+
+      final File imageFile = File(image.path);
+
+      emit(const ProfilePatientState.uploadImageLoading());
+
+      final result = await _profilePatientRepo.uploadProfileImage(imageFile);
+
+      result.when(
+        success: (uploadResponse) {
+          emit(ProfilePatientState.uploadImageSuccess(uploadResponse));
+          getProfileData();
+        },
+        failure: (error) {
+          emit(ProfilePatientState.uploadImageError(error));
+        },
+      );
+    } catch (error) {
+      emit(ProfilePatientState.uploadImageError(
+          ApiErrorModel(message: error.toString())
+      ));
+    }
+  }
+
+  Future<void> pickImageFromCamera() async {
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? image = await picker.pickImage(
+        source: ImageSource.camera,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 85,
+      );
+
+      if (image == null) return;
+
+      final File imageFile = File(image.path);
+
+      emit(const ProfilePatientState.uploadImageLoading());
+
+      final result = await _profilePatientRepo.uploadProfileImage(imageFile);
+
+      result.when(
+        success: (uploadResponse) {
+          emit(ProfilePatientState.uploadImageSuccess(uploadResponse));
+          getProfileData();
+        },
+        failure: (error) {
+          emit(ProfilePatientState.uploadImageError(error));
+        },
+      );
+    } catch (error) {
+      emit(ProfilePatientState.uploadImageError(
+          ApiErrorModel(message: error.toString())
+      ));
+    }
   }
 
   void setUserData(UserData userData) {

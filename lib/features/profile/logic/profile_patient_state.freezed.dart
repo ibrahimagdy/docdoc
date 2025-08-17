@@ -23,6 +23,10 @@ mixin _$ProfilePatientState {
     required TResult Function(GetProfilePatientResponse profilePatientResponse)
         profilePatientSuccess,
     required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +36,10 @@ mixin _$ProfilePatientState {
     TResult? Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +49,10 @@ mixin _$ProfilePatientState {
     TResult Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +64,9 @@ mixin _$ProfilePatientState {
     required TResult Function(profilePatientSuccess value)
         profilePatientSuccess,
     required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +75,9 @@ mixin _$ProfilePatientState {
     TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +86,9 @@ mixin _$ProfilePatientState {
     TResult Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +161,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(GetProfilePatientResponse profilePatientResponse)
         profilePatientSuccess,
     required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
   }) {
     return initial();
   }
@@ -152,6 +177,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
   }) {
     return initial?.call();
   }
@@ -164,6 +193,10 @@ class _$InitialImpl implements _Initial {
     TResult Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -181,6 +214,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(profilePatientSuccess value)
         profilePatientSuccess,
     required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
   }) {
     return initial(this);
   }
@@ -192,6 +228,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
   }) {
     return initial?.call(this);
   }
@@ -203,6 +242,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -264,6 +306,10 @@ class _$ProfilePatientLoadingImpl implements ProfilePatientLoading {
     required TResult Function(GetProfilePatientResponse profilePatientResponse)
         profilePatientSuccess,
     required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
   }) {
     return profilePatientLoading();
   }
@@ -276,6 +322,10 @@ class _$ProfilePatientLoadingImpl implements ProfilePatientLoading {
     TResult? Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
   }) {
     return profilePatientLoading?.call();
   }
@@ -288,6 +338,10 @@ class _$ProfilePatientLoadingImpl implements ProfilePatientLoading {
     TResult Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
     required TResult orElse(),
   }) {
     if (profilePatientLoading != null) {
@@ -305,6 +359,9 @@ class _$ProfilePatientLoadingImpl implements ProfilePatientLoading {
     required TResult Function(profilePatientSuccess value)
         profilePatientSuccess,
     required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
   }) {
     return profilePatientLoading(this);
   }
@@ -316,6 +373,9 @@ class _$ProfilePatientLoadingImpl implements ProfilePatientLoading {
     TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
   }) {
     return profilePatientLoading?.call(this);
   }
@@ -327,6 +387,9 @@ class _$ProfilePatientLoadingImpl implements ProfilePatientLoading {
     TResult Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
     required TResult orElse(),
   }) {
     if (profilePatientLoading != null) {
@@ -416,6 +479,10 @@ class _$profilePatientSuccessImpl implements profilePatientSuccess {
     required TResult Function(GetProfilePatientResponse profilePatientResponse)
         profilePatientSuccess,
     required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
   }) {
     return profilePatientSuccess(profilePatientResponse);
   }
@@ -428,6 +495,10 @@ class _$profilePatientSuccessImpl implements profilePatientSuccess {
     TResult? Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
   }) {
     return profilePatientSuccess?.call(profilePatientResponse);
   }
@@ -440,6 +511,10 @@ class _$profilePatientSuccessImpl implements profilePatientSuccess {
     TResult Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
     required TResult orElse(),
   }) {
     if (profilePatientSuccess != null) {
@@ -457,6 +532,9 @@ class _$profilePatientSuccessImpl implements profilePatientSuccess {
     required TResult Function(profilePatientSuccess value)
         profilePatientSuccess,
     required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
   }) {
     return profilePatientSuccess(this);
   }
@@ -468,6 +546,9 @@ class _$profilePatientSuccessImpl implements profilePatientSuccess {
     TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
   }) {
     return profilePatientSuccess?.call(this);
   }
@@ -479,6 +560,9 @@ class _$profilePatientSuccessImpl implements profilePatientSuccess {
     TResult Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
     required TResult orElse(),
   }) {
     if (profilePatientSuccess != null) {
@@ -576,6 +660,10 @@ class _$ProfilePatientErrorImpl implements ProfilePatientError {
     required TResult Function(GetProfilePatientResponse profilePatientResponse)
         profilePatientSuccess,
     required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
   }) {
     return profilePatientError(error);
   }
@@ -588,6 +676,10 @@ class _$ProfilePatientErrorImpl implements ProfilePatientError {
     TResult? Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
   }) {
     return profilePatientError?.call(error);
   }
@@ -600,6 +692,10 @@ class _$ProfilePatientErrorImpl implements ProfilePatientError {
     TResult Function(GetProfilePatientResponse profilePatientResponse)?
         profilePatientSuccess,
     TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
     required TResult orElse(),
   }) {
     if (profilePatientError != null) {
@@ -617,6 +713,9 @@ class _$ProfilePatientErrorImpl implements ProfilePatientError {
     required TResult Function(profilePatientSuccess value)
         profilePatientSuccess,
     required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
   }) {
     return profilePatientError(this);
   }
@@ -628,6 +727,9 @@ class _$ProfilePatientErrorImpl implements ProfilePatientError {
     TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
   }) {
     return profilePatientError?.call(this);
   }
@@ -639,6 +741,9 @@ class _$ProfilePatientErrorImpl implements ProfilePatientError {
     TResult Function(ProfilePatientLoading value)? profilePatientLoading,
     TResult Function(profilePatientSuccess value)? profilePatientSuccess,
     TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
     required TResult orElse(),
   }) {
     if (profilePatientError != null) {
@@ -658,5 +763,510 @@ abstract class ProfilePatientError implements ProfilePatientState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProfilePatientErrorImplCopyWith<_$ProfilePatientErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadImageLoadingImplCopyWith<$Res> {
+  factory _$$UploadImageLoadingImplCopyWith(_$UploadImageLoadingImpl value,
+          $Res Function(_$UploadImageLoadingImpl) then) =
+      __$$UploadImageLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UploadImageLoadingImplCopyWithImpl<$Res>
+    extends _$ProfilePatientStateCopyWithImpl<$Res, _$UploadImageLoadingImpl>
+    implements _$$UploadImageLoadingImplCopyWith<$Res> {
+  __$$UploadImageLoadingImplCopyWithImpl(_$UploadImageLoadingImpl _value,
+      $Res Function(_$UploadImageLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UploadImageLoadingImpl implements UploadImageLoading {
+  const _$UploadImageLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProfilePatientState.uploadImageLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UploadImageLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profilePatientLoading,
+    required TResult Function(GetProfilePatientResponse profilePatientResponse)
+        profilePatientSuccess,
+    required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
+  }) {
+    return uploadImageLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profilePatientLoading,
+    TResult? Function(GetProfilePatientResponse profilePatientResponse)?
+        profilePatientSuccess,
+    TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
+  }) {
+    return uploadImageLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profilePatientLoading,
+    TResult Function(GetProfilePatientResponse profilePatientResponse)?
+        profilePatientSuccess,
+    TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
+    required TResult orElse(),
+  }) {
+    if (uploadImageLoading != null) {
+      return uploadImageLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfilePatientLoading value)
+        profilePatientLoading,
+    required TResult Function(profilePatientSuccess value)
+        profilePatientSuccess,
+    required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
+  }) {
+    return uploadImageLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
+    TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
+    TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
+  }) {
+    return uploadImageLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfilePatientLoading value)? profilePatientLoading,
+    TResult Function(profilePatientSuccess value)? profilePatientSuccess,
+    TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
+    required TResult orElse(),
+  }) {
+    if (uploadImageLoading != null) {
+      return uploadImageLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UploadImageLoading implements ProfilePatientState {
+  const factory UploadImageLoading() = _$UploadImageLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UploadImageSuccessImplCopyWith<$Res> {
+  factory _$$UploadImageSuccessImplCopyWith(_$UploadImageSuccessImpl value,
+          $Res Function(_$UploadImageSuccessImpl) then) =
+      __$$UploadImageSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AddProfileImageResponse uploadImageResponse});
+}
+
+/// @nodoc
+class __$$UploadImageSuccessImplCopyWithImpl<$Res>
+    extends _$ProfilePatientStateCopyWithImpl<$Res, _$UploadImageSuccessImpl>
+    implements _$$UploadImageSuccessImplCopyWith<$Res> {
+  __$$UploadImageSuccessImplCopyWithImpl(_$UploadImageSuccessImpl _value,
+      $Res Function(_$UploadImageSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uploadImageResponse = null,
+  }) {
+    return _then(_$UploadImageSuccessImpl(
+      null == uploadImageResponse
+          ? _value.uploadImageResponse
+          : uploadImageResponse // ignore: cast_nullable_to_non_nullable
+              as AddProfileImageResponse,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadImageSuccessImpl implements UploadImageSuccess {
+  const _$UploadImageSuccessImpl(this.uploadImageResponse);
+
+  @override
+  final AddProfileImageResponse uploadImageResponse;
+
+  @override
+  String toString() {
+    return 'ProfilePatientState.uploadImageSuccess(uploadImageResponse: $uploadImageResponse)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadImageSuccessImpl &&
+            (identical(other.uploadImageResponse, uploadImageResponse) ||
+                other.uploadImageResponse == uploadImageResponse));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uploadImageResponse);
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadImageSuccessImplCopyWith<_$UploadImageSuccessImpl> get copyWith =>
+      __$$UploadImageSuccessImplCopyWithImpl<_$UploadImageSuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profilePatientLoading,
+    required TResult Function(GetProfilePatientResponse profilePatientResponse)
+        profilePatientSuccess,
+    required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
+  }) {
+    return uploadImageSuccess(uploadImageResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profilePatientLoading,
+    TResult? Function(GetProfilePatientResponse profilePatientResponse)?
+        profilePatientSuccess,
+    TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
+  }) {
+    return uploadImageSuccess?.call(uploadImageResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profilePatientLoading,
+    TResult Function(GetProfilePatientResponse profilePatientResponse)?
+        profilePatientSuccess,
+    TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
+    required TResult orElse(),
+  }) {
+    if (uploadImageSuccess != null) {
+      return uploadImageSuccess(uploadImageResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfilePatientLoading value)
+        profilePatientLoading,
+    required TResult Function(profilePatientSuccess value)
+        profilePatientSuccess,
+    required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
+  }) {
+    return uploadImageSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
+    TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
+    TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
+  }) {
+    return uploadImageSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfilePatientLoading value)? profilePatientLoading,
+    TResult Function(profilePatientSuccess value)? profilePatientSuccess,
+    TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
+    required TResult orElse(),
+  }) {
+    if (uploadImageSuccess != null) {
+      return uploadImageSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UploadImageSuccess implements ProfilePatientState {
+  const factory UploadImageSuccess(
+          final AddProfileImageResponse uploadImageResponse) =
+      _$UploadImageSuccessImpl;
+
+  AddProfileImageResponse get uploadImageResponse;
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UploadImageSuccessImplCopyWith<_$UploadImageSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadImageErrorImplCopyWith<$Res> {
+  factory _$$UploadImageErrorImplCopyWith(_$UploadImageErrorImpl value,
+          $Res Function(_$UploadImageErrorImpl) then) =
+      __$$UploadImageErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel error});
+}
+
+/// @nodoc
+class __$$UploadImageErrorImplCopyWithImpl<$Res>
+    extends _$ProfilePatientStateCopyWithImpl<$Res, _$UploadImageErrorImpl>
+    implements _$$UploadImageErrorImplCopyWith<$Res> {
+  __$$UploadImageErrorImplCopyWithImpl(_$UploadImageErrorImpl _value,
+      $Res Function(_$UploadImageErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$UploadImageErrorImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadImageErrorImpl implements UploadImageError {
+  const _$UploadImageErrorImpl(this.error);
+
+  @override
+  final ApiErrorModel error;
+
+  @override
+  String toString() {
+    return 'ProfilePatientState.uploadImageError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadImageErrorImpl &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadImageErrorImplCopyWith<_$UploadImageErrorImpl> get copyWith =>
+      __$$UploadImageErrorImplCopyWithImpl<_$UploadImageErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profilePatientLoading,
+    required TResult Function(GetProfilePatientResponse profilePatientResponse)
+        profilePatientSuccess,
+    required TResult Function(ApiErrorModel error) profilePatientError,
+    required TResult Function() uploadImageLoading,
+    required TResult Function(AddProfileImageResponse uploadImageResponse)
+        uploadImageSuccess,
+    required TResult Function(ApiErrorModel error) uploadImageError,
+  }) {
+    return uploadImageError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profilePatientLoading,
+    TResult? Function(GetProfilePatientResponse profilePatientResponse)?
+        profilePatientSuccess,
+    TResult? Function(ApiErrorModel error)? profilePatientError,
+    TResult? Function()? uploadImageLoading,
+    TResult? Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult? Function(ApiErrorModel error)? uploadImageError,
+  }) {
+    return uploadImageError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profilePatientLoading,
+    TResult Function(GetProfilePatientResponse profilePatientResponse)?
+        profilePatientSuccess,
+    TResult Function(ApiErrorModel error)? profilePatientError,
+    TResult Function()? uploadImageLoading,
+    TResult Function(AddProfileImageResponse uploadImageResponse)?
+        uploadImageSuccess,
+    TResult Function(ApiErrorModel error)? uploadImageError,
+    required TResult orElse(),
+  }) {
+    if (uploadImageError != null) {
+      return uploadImageError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfilePatientLoading value)
+        profilePatientLoading,
+    required TResult Function(profilePatientSuccess value)
+        profilePatientSuccess,
+    required TResult Function(ProfilePatientError value) profilePatientError,
+    required TResult Function(UploadImageLoading value) uploadImageLoading,
+    required TResult Function(UploadImageSuccess value) uploadImageSuccess,
+    required TResult Function(UploadImageError value) uploadImageError,
+  }) {
+    return uploadImageError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfilePatientLoading value)? profilePatientLoading,
+    TResult? Function(profilePatientSuccess value)? profilePatientSuccess,
+    TResult? Function(ProfilePatientError value)? profilePatientError,
+    TResult? Function(UploadImageLoading value)? uploadImageLoading,
+    TResult? Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult? Function(UploadImageError value)? uploadImageError,
+  }) {
+    return uploadImageError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfilePatientLoading value)? profilePatientLoading,
+    TResult Function(profilePatientSuccess value)? profilePatientSuccess,
+    TResult Function(ProfilePatientError value)? profilePatientError,
+    TResult Function(UploadImageLoading value)? uploadImageLoading,
+    TResult Function(UploadImageSuccess value)? uploadImageSuccess,
+    TResult Function(UploadImageError value)? uploadImageError,
+    required TResult orElse(),
+  }) {
+    if (uploadImageError != null) {
+      return uploadImageError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UploadImageError implements ProfilePatientState {
+  const factory UploadImageError(final ApiErrorModel error) =
+      _$UploadImageErrorImpl;
+
+  ApiErrorModel get error;
+
+  /// Create a copy of ProfilePatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UploadImageErrorImplCopyWith<_$UploadImageErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

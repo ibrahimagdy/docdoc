@@ -69,7 +69,7 @@ class ProfileScreen extends StatelessWidget {
                     right: 0,
                     child: GestureDetector(
                       onTap: () => context.pushNamed(Routes.personalInfoScreen),
-                      child: const ChangeProfilePicBlocBuilder(),
+                      child: const ChangeProfilePicBlocBuilder(isClickable: false),
                     ),
                   ),
                 ],

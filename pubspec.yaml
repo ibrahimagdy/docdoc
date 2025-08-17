@@ -66,6 +66,8 @@ dependencies:
   skeletonizer: ^1.4.3
   # Flutter library to load and cache network images.
   cached_network_image: ^3.4.1
+  # Flutter plugin for selecting images from the Android and iOS image library, and taking new pictures with the camera.
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:

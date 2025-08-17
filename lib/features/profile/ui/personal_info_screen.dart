@@ -20,7 +20,7 @@ class PersonalInfoScreen extends StatelessWidget {
             children: [
               const PersonalInfoAppBar(),
               verticalSpace(48),
-              const ChangeProfilePicBlocBuilder(),
+              const ChangeProfilePicBlocBuilder(isClickable: true),
               verticalSpace(46),
               const PersonalInfoBlocBuilder(),
               Text(

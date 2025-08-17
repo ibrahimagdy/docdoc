@@ -6,6 +6,7 @@ class ApiConstants{
   static const String otpVerification = 'Auth/otpVerification';
   static const String resetPassword = 'Auth/resetPassword';
   static const String profilePatient = 'Profile/patient';
+  static const String profileImage = "Profile/profileImage";
 }
 
 class ApiErrors {

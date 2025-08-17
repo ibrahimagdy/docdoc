@@ -1,4 +1,5 @@
 import 'package:doctors_app/core/networking/api_error_model.dart';
+import 'package:doctors_app/features/profile/data/models/update_profile_image_response.dart';
 import 'package:doctors_app/features/profile/data/models/get_profile_patient_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,4 +16,9 @@ class ProfilePatientState with _$ProfilePatientState {
 
   const factory ProfilePatientState.profilePatientError(ApiErrorModel error) =
       ProfilePatientError;
+
+  const factory ProfilePatientState.uploadImageLoading() = UploadImageLoading;
+  const factory ProfilePatientState.uploadImageSuccess(
+      AddProfileImageResponse uploadImageResponse) = UploadImageSuccess;
+  const factory ProfilePatientState.uploadImageError(ApiErrorModel error) = UploadImageError;
 }
