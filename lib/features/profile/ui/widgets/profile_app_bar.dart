@@ -1,3 +1,5 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +11,7 @@ class ProfileAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w,vertical: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
       child: Row(
         children: [
           Expanded(
@@ -24,7 +26,11 @@ class ProfileAppBar extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: SvgPicture.asset('assets/svgs/setting_icon.svg'),
+                  child: GestureDetector(
+                      onTap: () {
+                        context.pushNamed(Routes.settingsScreen);
+                      },
+                      child: SvgPicture.asset('assets/svgs/setting_icon.svg')),
                 ),
               ],
             ),

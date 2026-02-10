@@ -1,3 +1,4 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/colors.dart';
@@ -69,8 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     avatarRadius: 66,
                     onTap: () {
                       final profileCubit = context.read<ProfileCubit>();
-                      Navigator.pushNamed(
-                        context,
+                      context.pushNamed(
                         Routes.personalInfoScreen,
                         arguments: profileCubit,
                       );
