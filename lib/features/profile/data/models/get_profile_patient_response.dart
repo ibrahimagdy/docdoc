@@ -12,7 +12,6 @@ class GetProfilePatientResponse {
   final String? errors;
   final int statusCode;
 
-
   GetProfilePatientResponse({
     required this.success,
     required this.statusCode,
@@ -29,20 +28,42 @@ class GetProfilePatientResponse {
 
 @JsonSerializable()
 class UserData {
+  @JsonKey(fromJson: _processImageUrl)
   final String profileImage;
   final String fullName;
   final String email;
   final String userName;
-  final String phoneNumber;
+  final String? phoneNumber;
 
   UserData({
     required this.profileImage,
     required this.fullName,
     required this.email,
     required this.userName,
-    required this.phoneNumber,
+    this.phoneNumber,
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
+
+  static String _processImageUrl(String url) {
+    String cleanUrl = url.replaceAll('\\', '/');
+
+    if (cleanUrl.isEmpty ||
+        cleanUrl == 'http://doctorappointment.runasp.net/' ||
+        !_isValidImageUrl(cleanUrl)) {
+      return '';
+    }
+
+    return cleanUrl;
+  }
+
+  static bool _isValidImageUrl(String url) {
+    if (url.isEmpty) return false;
+
+    final validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+    final lowerUrl = url.toLowerCase();
+
+    return validExtensions.any((ext) => lowerUrl.contains(ext));
+  }
 }

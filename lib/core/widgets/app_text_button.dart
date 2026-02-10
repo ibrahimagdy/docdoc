@@ -10,7 +10,7 @@ class AppTextButton extends StatelessWidget {
   final double? verticalPadding;
   final double? width;
   final double? height;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final TextStyle? textStyle;
 
   const AppTextButton({
@@ -27,32 +27,43 @@ class AppTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isEnabled = onPressed != null;
+
     return TextButton(
       style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(
-            backgroundColor ?? ColorManger.mainBlue,
+        backgroundColor: WidgetStateProperty.resolveWith<Color>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return (backgroundColor ?? ColorManger.mainBlue)
+                  .withValues(alpha: 0.5);
+            }
+            return backgroundColor ?? ColorManger.mainBlue;
+          },
+        ),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
           ),
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
+        ),
+        padding: WidgetStateProperty.all<EdgeInsets>(
+          EdgeInsets.symmetric(
+            horizontal: horizontalPadding?.w ?? 12.w,
+            vertical: verticalPadding?.h ?? 14.h,
           ),
-          padding: WidgetStateProperty.all<EdgeInsets>(
-            EdgeInsets.symmetric(
-              horizontal: horizontalPadding?.w ?? 12.w,
-              vertical: verticalPadding?.h ?? 14.h,
-            ),
+        ),
+        fixedSize: WidgetStateProperty.all(
+          Size(
+            width?.w ?? double.maxFinite,
+            height?.h ?? 52.h,
           ),
-          fixedSize: WidgetStateProperty.all(
-            Size(
-              width?.w ?? double.maxFinite,
-              height?.h ?? 52.h,
-            ),
-          )),
+        ),
+      ),
       onPressed: onPressed,
       child: Text(
         text,
-        style: textStyle?? TextStyles.font16WhiteSemiBold,
+        style: (textStyle ?? TextStyles.font16WhiteSemiBold).copyWith(
+          color: isEnabled ? null : Colors.white.withValues(alpha: 0.6),
+        ),
       ),
     );
   }

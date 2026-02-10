@@ -105,6 +105,8 @@ class AppTextFormField extends StatelessWidget {
         inputFormatters: inputFormatters,
         decoration: decoration ??
             InputDecoration(
+              fillColor: ColorManger.lightestGrey,
+              filled: true,
               isDense: true,
               border: border,
               contentPadding: contentPadding ??

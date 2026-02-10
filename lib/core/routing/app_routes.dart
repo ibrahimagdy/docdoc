@@ -13,8 +13,8 @@ import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/layout/app_layout.dart';
 import 'package:doctors_app/features/onboarding/onboarding_screen.dart';
-import 'package:doctors_app/features/profile/logic/profile_patient_cubit.dart';
-import 'package:doctors_app/features/profile/ui/personal_info_screen.dart';
+import 'package:doctors_app/features/personal_info/ui/personal_info_screen.dart';
+import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -62,19 +62,18 @@ class AppRoutes {
         );
       case Routes.appLayout:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<ProfilePatientCubit>(),
-            child: const AppLayout(),
-          ),
+          builder: (context) => const AppLayout(),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
         );
       case Routes.personalInfoScreen:
+        final profileCubit = settings.arguments as ProfileCubit?;
+
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<ProfilePatientCubit>(),
+          builder: (context) => BlocProvider.value(
+            value: profileCubit ?? getIt<ProfileCubit>(),
             child: const PersonalInfoScreen(),
           ),
         );

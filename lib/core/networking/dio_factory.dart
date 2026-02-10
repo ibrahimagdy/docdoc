@@ -2,27 +2,26 @@ import 'package:dio/dio.dart';
 import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class DioFactory{
-
+class DioFactory {
   DioFactory._();
   static Dio? dio;
 
-  static Dio getDio(){
+  static Dio getDio() {
     Duration timeOut = const Duration(seconds: 30);
-    if(dio == null){
+    if (dio == null) {
       dio = Dio();
       dio!
-      ..options.connectTimeout = timeOut
-      ..options.receiveTimeout = timeOut;
+        ..options.connectTimeout = timeOut
+        ..options.receiveTimeout = timeOut;
       addDioInterceptor();
       addDioHeader();
       return dio!;
-    }
-    else{
+    } else {
       return dio!;
     }
   }
-  static void addDioInterceptor(){
+
+  static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(
         requestBody: true,
@@ -34,8 +33,10 @@ class DioFactory{
 
   static void addDioHeader() async {
     dio?.options.headers = {
-      'Accept' : 'application/json',
-      'Authorization' : 'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }
 
@@ -45,4 +46,3 @@ class DioFactory{
     };
   }
 }
-

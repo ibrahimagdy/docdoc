@@ -47,10 +47,10 @@ dependencies:
   # Networking
   dio: ^5.6.0
   retrofit: ^4.2.0
-  retrofit_generator: ^8.2.0
+  retrofit_generator: ^9.7.0
   pretty_dio_logger: ^1.4.0
   # Localization
-  intl: ^0.19.0
+  intl: ^0.20.2
   easy_localization: ^3.0.7
   # For Splash screen
   flutter_native_splash: ^2.4.1
@@ -66,6 +66,8 @@ dependencies:
   skeletonizer: ^1.4.3
   # Flutter library to load and cache network images.
   cached_network_image: ^3.4.1
+  # Flutter plugin for selecting images from the Android and iOS image library, and taking new pictures with the camera.
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:
