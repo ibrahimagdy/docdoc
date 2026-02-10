@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorManger{
+class ColorManger {
   static const Color mainBlue = Color(0XFF247CFF);
   static const Color darkBlue = Color(0XFF242424);
   static const Color lightBlue = Color(0XFFF4F8FF);
@@ -14,4 +14,5 @@ class ColorManger{
   static const Color white = Colors.white;
   static const Color black = Colors.black;
   static const Color otherBlack = Color(0XFF121212);
+  static const Color red = Color(0XFFFF4C5E);
 }

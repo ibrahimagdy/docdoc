@@ -56,7 +56,6 @@ class PersonalInfoScreen extends StatelessWidget {
             builder: (context, state) {
               final cubit = context.read<PersonalInfoCubit>();
 
-              // التحقق من وجود تغييرات
               bool hasChanges = false;
               state.whenOrNull(
                 dataChanged: (changes) {

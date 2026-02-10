@@ -15,6 +15,7 @@ import 'package:doctors_app/features/layout/app_layout.dart';
 import 'package:doctors_app/features/onboarding/onboarding_screen.dart';
 import 'package:doctors_app/features/personal_info/ui/personal_info_screen.dart';
 import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
+import 'package:doctors_app/features/settings/ui/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -76,6 +77,10 @@ class AppRoutes {
             value: profileCubit ?? getIt<ProfileCubit>(),
             child: const PersonalInfoScreen(),
           ),
+        );
+      case Routes.settingsScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SettingsScreen(),
         );
       default:
         return MaterialPageRoute(
