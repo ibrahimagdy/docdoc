@@ -27,11 +27,11 @@ Map<String, dynamic> _$GetProfilePatientResponseToJson(
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
-      profileImage: json['profileImage'] as String,
+      profileImage: UserData._processImageUrl(json['profileImage'] as String),
       fullName: json['fullName'] as String,
       email: json['email'] as String,
       userName: json['userName'] as String,
-      phoneNumber: json['phoneNumber'] as String,
+      phoneNumber: json['phoneNumber'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{

@@ -9,7 +9,8 @@ import 'package:doctors_app/features/auth/reset_password/data/models/reset_passw
 import 'package:doctors_app/features/auth/reset_password/data/models/reset_password_response_model.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_request_body.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_response.dart';
-import 'package:doctors_app/features/profile/data/models/update_profile_image_response.dart';
+import 'package:doctors_app/features/personal_info/data/models/update_profile_image_response.dart';
+import 'package:doctors_app/features/personal_info/data/models/update_profile_request.dart';
 import 'package:doctors_app/features/profile/data/models/get_profile_patient_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'api_constants.dart';
@@ -50,10 +51,22 @@ abstract class ApiService {
     @Header('Authorization') String token,
   );
 
+  @PUT(ApiConstants.profilePatient)
+  Future<GetProfilePatientResponse> updateProfile(
+    @Header('Authorization') String token,
+    @Body() UpdateProfileRequest updateProfileRequest,
+  );
+
   @PUT(ApiConstants.profileImage)
   @MultiPart()
   Future<AddProfileImageResponse> uploadProfileImage(
     @Header('Authorization') String token,
     @Body() FormData formData,
+  );
+
+  @DELETE(ApiConstants.profileImage)
+  Future<AddProfileImageResponse> deleteProfileImage(
+    @Header('Authorization') String token,
+      @Body() Map<String, dynamic> body,
   );
 }

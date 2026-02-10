@@ -2,7 +2,7 @@ import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/colors.dart';
-import 'package:doctors_app/features/profile/ui/profile_widgets/profile_list_tile_item.dart';
+import 'package:doctors_app/features/profile/ui/widgets/profile_list_tile_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

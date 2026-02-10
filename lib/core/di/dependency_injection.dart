@@ -11,37 +11,50 @@ import 'package:doctors_app/features/auth/reset_password/data/repo/reset_passwor
 import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/data/repos/sign_up_repo.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:doctors_app/features/personal_info/data/repos/personal_info_repo.dart';
+import 'package:doctors_app/features/personal_info/logic/personal_info_cubit.dart';
 import 'package:doctors_app/features/profile/data/repos/profile_patient_repo.dart';
-import 'package:doctors_app/features/profile/logic/profile_patient_cubit.dart';
+import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
-  getIt.registerLazySingleton<ApiService>(()=> ApiService(dio));
+  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
   /// login
-  getIt.registerLazySingleton<LoginRepo>(()=> LoginRepo(getIt()));
-  getIt.registerFactory<LoginCubit>(()=> LoginCubit(getIt()));
+  getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
   /// signUp
-  getIt.registerLazySingleton<SignUpRepo>(()=> SignUpRepo(getIt()));
-  getIt.registerFactory<SignUpCubit>(()=> SignUpCubit(getIt()));
+  getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
+  getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
 
   /// forgot password
-  getIt.registerLazySingleton<ForgotPasswordRepo>(()=> ForgotPasswordRepo(getIt()));
-  getIt.registerFactory<ForgotPasswordCubit>(()=> ForgotPasswordCubit(getIt()));
+  getIt.registerLazySingleton<ForgotPasswordRepo>(
+      () => ForgotPasswordRepo(getIt()));
+  getIt
+      .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt()));
 
   /// otp
-  getIt.registerLazySingleton<VerifyOtpRepo>(()=> VerifyOtpRepo(getIt()));
-  getIt.registerFactory<VerifyOtpCubit>(()=> VerifyOtpCubit(getIt()));
+  getIt.registerLazySingleton<VerifyOtpRepo>(() => VerifyOtpRepo(getIt()));
+  getIt.registerFactory<VerifyOtpCubit>(() => VerifyOtpCubit(getIt()));
 
   /// reset password
-  getIt.registerLazySingleton<ResetPasswordRepo>(()=> ResetPasswordRepo(getIt()));
-  getIt.registerFactory<ResetPasswordCubit>(()=> ResetPasswordCubit(getIt()));
+  getIt.registerLazySingleton<ResetPasswordRepo>(
+      () => ResetPasswordRepo(getIt()));
+  getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(getIt()));
 
-  /// profile patient
-  getIt.registerLazySingleton<ProfilePatientRepo>(()=> ProfilePatientRepo(getIt()));
-  getIt.registerFactory<ProfilePatientCubit>(()=> ProfilePatientCubit(getIt()));
+  /// profile
+  getIt.registerLazySingleton<ProfilePatientRepo>(
+      () => ProfilePatientRepo(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  /// personal info
+  getIt
+      .registerLazySingleton<PersonalInfoRepo>(() => PersonalInfoRepo(getIt()));
+  getIt.registerFactoryParam<PersonalInfoCubit, ProfileCubit, void>(
+    (profileCubit, _) => PersonalInfoCubit(getIt(), profileCubit),
+  );
 }
