@@ -1,6 +1,8 @@
-import  'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/helpers/extensions.dart';
+import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_blue_container.dart';
-import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_list_view.dart';
+import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_bloc_builder.dart';
 import 'package:doctors_app/features/home/ui/widgets/home_top_bar.dart';
 import 'package:doctors_app/features/home/ui/widgets/recommendation_doctors/doctors_list_view.dart';
 import 'package:doctors_app/features/home/ui/widgets/see_all_widget.dart';
@@ -26,19 +28,16 @@ class HomeScreen extends StatelessWidget {
                     verticalSpace(24),
                     SeeAllWidget(
                       text: "Doctor Speciality",
-                      onTap: () {},
+                      onTap: () {
+                        context.pushNamed(Routes.seeAllDoctorSpecialityScreen);
+                      },
                     ),
                     verticalSpace(16),
                   ],
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.only(left: 16.w),
-                child: const DoctorSpecialityListView(),
-              ),
-            ),
+            const DoctorSpecialityBlocBuilder(),
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),

@@ -7,6 +7,7 @@ class ApiConstants {
   static const String resetPassword = 'Auth/resetPassword';
   static const String profilePatient = 'Profile/patient';
   static const String profileImage = "Profile/profileImage";
+  static const String specializations = 'Spcializations';
 }
 
 class ApiErrors {

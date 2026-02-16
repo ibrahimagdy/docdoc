@@ -1,6 +1,7 @@
 import 'package:doctors_app/core/di/dependency_injection.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
+import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/layout/widgets/bottom_nav_item.dart';
 import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
@@ -28,8 +29,16 @@ class _AppLayoutState extends State<AppLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<ProfileCubit>()..getProfileData(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<ProfileCubit>()..getProfileData(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getIt<SpecializationsCubit>()..getSpecializations(),
+        )
+      ],
       child: Scaffold(
         body: IndexedStack(
           index: selectedIndex,

@@ -1,5 +1,5 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
-import 'package:doctors_app/features/settings/ui/widgets/settings_app_bar.dart';
+import 'package:doctors_app/core/widgets/custom_app_bar.dart';
 import 'package:doctors_app/features/settings/ui/widgets/settings_list_tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +16,7 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             children: [
               verticalSpace(16),
-              const SettingsAppBar(),
+              const CustomAppBar(title: "Settings"),
               verticalSpace(32),
               const SettingsListTiles(),
             ],
