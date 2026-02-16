@@ -10,7 +10,9 @@ import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cu
 import 'package:doctors_app/features/auth/reset_password/ui/reset_password_screen.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
+import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
+import 'package:doctors_app/features/home/ui/see_all_doctor_speciality_screen.dart';
 import 'package:doctors_app/features/layout/app_layout.dart';
 import 'package:doctors_app/features/onboarding/onboarding_screen.dart';
 import 'package:doctors_app/features/personal_info/ui/personal_info_screen.dart';
@@ -81,6 +83,13 @@ class AppRoutes {
       case Routes.settingsScreen:
         return MaterialPageRoute(
           builder: (context) => const SettingsScreen(),
+        );
+      case Routes.seeAllDoctorSpecialityScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<SpecializationsCubit>(),
+            child: const SeeAllDoctorSpecialityScreen(),
+          ),
         );
       default:
         return MaterialPageRoute(

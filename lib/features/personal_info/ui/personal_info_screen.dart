@@ -3,12 +3,12 @@ import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:doctors_app/core/widgets/app_text_button.dart';
 import 'package:doctors_app/core/widgets/app_text_form_field.dart';
+import 'package:doctors_app/core/widgets/custom_app_bar.dart';
 import 'package:doctors_app/core/widgets/custom_snack_bar.dart';
 import 'package:doctors_app/core/widgets/loading_circle_indicator.dart';
 import 'package:doctors_app/features/personal_info/logic/personal_info_cubit.dart';
 import 'package:doctors_app/features/personal_info/logic/personal_info_state.dart';
 import 'package:doctors_app/features/personal_info/ui/widgets/image_source_bottom_sheet.dart';
-import 'package:doctors_app/features/personal_info/ui/widgets/personal_info_app_bar.dart';
 import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
 import 'package:doctors_app/features/profile/ui/widgets/change_profile_avatar.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +68,9 @@ class PersonalInfoScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     verticalSpace(16),
-                    const PersonalInfoAppBar(),
+                    const CustomAppBar(
+                      title: "Personal Information",
+                    ),
                     verticalSpace(42),
                     ChangeProfileAvatar(
                       whiteRadius: 59,

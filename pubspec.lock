@@ -481,10 +481,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: b9c29a161230ee03d3ccf545097fccd9b87a5264228c5d348202e0f0c28f9010
+      sha256: "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.2"
+    version: "1.6.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -941,14 +941,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  skeletonizer:
+  shimmer:
     dependency: "direct main"
     description:
-      name: skeletonizer
-      sha256: "0dcacc51c144af4edaf37672072156f49e47036becbc394d7c51850c5c1e884b"
+      name: shimmer
+      sha256: "5f88c883a22e9f9f299e5ba0e4f7e6054857224976a5d9f839d4ebdc94a14ac9"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.3"
+    version: "3.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
