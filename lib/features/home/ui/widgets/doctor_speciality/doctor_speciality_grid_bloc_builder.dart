@@ -1,6 +1,6 @@
 import 'package:doctors_app/core/theming/styles.dart';
-import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
-import 'package:doctors_app/features/home/logic/specializations_state.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_state.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_grid_view.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_shimmer.dart';
 import 'package:flutter/material.dart';

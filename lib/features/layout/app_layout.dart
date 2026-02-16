@@ -1,7 +1,8 @@
 import 'package:doctors_app/core/di/dependency_injection.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
-import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/layout/widgets/bottom_nav_item.dart';
 import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
@@ -37,7 +38,11 @@ class _AppLayoutState extends State<AppLayout> {
         BlocProvider(
           create: (context) =>
               getIt<SpecializationsCubit>()..getSpecializations(),
-        )
+        ),
+        BlocProvider(
+          create: (context) =>
+              getIt<RecommendationDoctorsCubit>()..getRecommendationDoctors(),
+        ),
       ],
       child: Scaffold(
         body: IndexedStack(

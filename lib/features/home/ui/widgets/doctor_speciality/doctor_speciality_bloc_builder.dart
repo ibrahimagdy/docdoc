@@ -1,5 +1,6 @@
-import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
-import 'package:doctors_app/features/home/logic/specializations_state.dart';
+import 'package:doctors_app/core/theming/styles.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_state.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_list_view.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_shimmer.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class DoctorSpecialityBlocBuilder extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 40.h),
                 child: Text(
                   error.getAllErrorMessages(),
-                  style: const TextStyle(color: Colors.red),
+                  style: TextStyles.font14RedRegular,
                 ),
               ),
             ),

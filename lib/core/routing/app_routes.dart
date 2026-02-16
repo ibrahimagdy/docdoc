@@ -10,7 +10,7 @@ import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cu
 import 'package:doctors_app/features/auth/reset_password/ui/reset_password_screen.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
-import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/home/ui/see_all_doctor_speciality_screen.dart';
 import 'package:doctors_app/features/layout/app_layout.dart';
@@ -73,7 +73,6 @@ class AppRoutes {
         );
       case Routes.personalInfoScreen:
         final profileCubit = settings.arguments as ProfileCubit?;
-
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
             value: profileCubit ?? getIt<ProfileCubit>(),
@@ -85,11 +84,14 @@ class AppRoutes {
           builder: (context) => const SettingsScreen(),
         );
       case Routes.seeAllDoctorSpecialityScreen:
+        final specializationsCubit = settings.arguments as SpecializationsCubit;
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<SpecializationsCubit>(),
-            child: const SeeAllDoctorSpecialityScreen(),
-          ),
+          builder: (context) {
+            return BlocProvider.value(
+              value: specializationsCubit,
+              child: const SeeAllDoctorSpecialityScreen(),
+            );
+          },
         );
       default:
         return MaterialPageRoute(

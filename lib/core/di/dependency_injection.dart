@@ -11,8 +11,10 @@ import 'package:doctors_app/features/auth/reset_password/data/repo/reset_passwor
 import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/data/repos/sign_up_repo.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:doctors_app/features/home/data/repos/recommendation_doctors_repo.dart';
 import 'package:doctors_app/features/home/data/repos/specializations_repo.dart';
-import 'package:doctors_app/features/home/logic/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/personal_info/data/repos/personal_info_repo.dart';
 import 'package:doctors_app/features/personal_info/logic/personal_info_cubit.dart';
 import 'package:doctors_app/features/profile/data/repos/profile_patient_repo.dart';
@@ -65,4 +67,12 @@ Future<void> setupGetIt() async {
       () => SpecializationsRepo(getIt()));
   getIt.registerFactory<SpecializationsCubit>(
       () => SpecializationsCubit(getIt()));
+
+  /// recommendation doctors
+  getIt.registerLazySingleton<RecommendationDoctorsRepo>(
+    () => RecommendationDoctorsRepo(getIt()),
+  );
+  getIt.registerFactory<RecommendationDoctorsCubit>(
+    () => RecommendationDoctorsCubit(getIt()),
+  );
 }
