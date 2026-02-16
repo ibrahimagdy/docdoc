@@ -8,6 +8,7 @@ class ApiConstants {
   static const String profilePatient = 'Profile/patient';
   static const String profileImage = "Profile/profileImage";
   static const String specializations = 'Spcializations';
+  static const String recommendationDoctors = 'Doctors';
 }
 
 class ApiErrors {

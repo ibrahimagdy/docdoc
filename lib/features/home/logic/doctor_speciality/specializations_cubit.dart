@@ -1,5 +1,5 @@
 import 'package:doctors_app/features/home/data/repos/specializations_repo.dart';
-import 'package:doctors_app/features/home/logic/specializations_state.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SpecializationsCubit extends Cubit<SpecializationsState> {
