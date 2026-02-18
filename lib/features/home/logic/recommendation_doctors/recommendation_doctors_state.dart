@@ -9,7 +9,15 @@ class RecommendationDoctorsState with _$RecommendationDoctorsState {
   const factory RecommendationDoctorsState.initial() = _Initial;
   const factory RecommendationDoctorsState.loading() = Loading;
   const factory RecommendationDoctorsState.success(
-      RecommendationDoctorsResponse data) = Success;
+    RecommendationDoctorsResponse data, {
+    @Default([]) List<DoctorData> allDoctors,
+    @Default(false) bool hasMore,
+    @Default(1) int currentPage,
+  }) = Success;
+  const factory RecommendationDoctorsState.loadingMore({
+    required List<DoctorData> currentDoctors,
+    required int currentPage,
+  }) = LoadingMore;
   const factory RecommendationDoctorsState.error(
       {required ApiErrorModel error}) = Error;
 }

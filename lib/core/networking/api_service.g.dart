@@ -324,9 +324,19 @@ class _ApiService implements ApiService {
   @override
   Future<RecommendationDoctorsResponse> getRecommendationDoctors(
     String token,
+    int? pageSize,
+    int? pageIndex,
+    String? name,
+    String? specialization,
   ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'pageSize': pageSize,
+      r'pageIndex': pageIndex,
+      r'Name': name,
+      r'Specialization': specialization,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;

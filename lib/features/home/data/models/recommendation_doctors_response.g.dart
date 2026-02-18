@@ -11,8 +11,10 @@ RecommendationDoctorsResponse _$RecommendationDoctorsResponseFromJson(
     RecommendationDoctorsResponse(
       success: json['success'] as bool,
       message: json['messsage'] as String,
-      doctorsData:
-          DoctorsPaginationData.fromJson(json['data'] as Map<String, dynamic>),
+      doctorsData: json['data'] == null
+          ? null
+          : DoctorsPaginationData.fromJson(
+              json['data'] as Map<String, dynamic>),
       errors: json['errors'] as String?,
       statusCode: (json['statusCode'] as num).toInt(),
     );
