@@ -9,14 +9,24 @@ class RecommendationDoctorsRepo {
 
   RecommendationDoctorsRepo(this._apiService);
 
-  Future<ApiResult<RecommendationDoctorsResponse>>
-      getRecommendationDoctors() async {
+  Future<ApiResult<RecommendationDoctorsResponse>> getRecommendationDoctors({
+    int? pageSize,
+    int? pageIndex,
+    String? name,
+    String? specialization,
+  }) async {
     try {
       final userToken = await SharedPrefHelper.getSecuredString(
         SharedPrefKeys.userToken,
       );
       final authHeader = 'Bearer $userToken';
-      final response = await _apiService.getRecommendationDoctors(authHeader);
+      final response = await _apiService.getRecommendationDoctors(
+        authHeader,
+        pageSize,
+        pageIndex,
+        name,
+        specialization,
+      );
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handle(error));

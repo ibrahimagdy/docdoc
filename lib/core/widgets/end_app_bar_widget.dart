@@ -1,15 +1,17 @@
-import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BackArrow extends StatelessWidget {
-  const BackArrow({super.key});
+class EndAppBarWidget extends StatelessWidget {
+  final VoidCallback? onTap;
+  final IconData icon;
+
+  const EndAppBarWidget({super.key, this.onTap, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.pop(),
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(8.w),
         decoration: BoxDecoration(
@@ -17,7 +19,7 @@ class BackArrow extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Icon(
-          Icons.arrow_back_ios_new,
+          icon,
           color: ColorManger.darkBlue,
           size: 20.w,
         ),

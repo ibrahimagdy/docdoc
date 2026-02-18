@@ -20,7 +20,11 @@ mixin _$RecommendationDoctorsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecommendationDoctorsResponse data) success,
+    required TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)
+        success,
+    required TResult Function(List<DoctorData> currentDoctors, int currentPage)
+        loadingMore,
     required TResult Function(ApiErrorModel error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +32,11 @@ mixin _$RecommendationDoctorsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RecommendationDoctorsResponse data)? success,
+    TResult? Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult? Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult? Function(ApiErrorModel error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +44,11 @@ mixin _$RecommendationDoctorsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecommendationDoctorsResponse data)? success,
+    TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) =>
@@ -46,6 +58,7 @@ mixin _$RecommendationDoctorsState {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(LoadingMore value) loadingMore,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +67,7 @@ mixin _$RecommendationDoctorsState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(LoadingMore value)? loadingMore,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +76,7 @@ mixin _$RecommendationDoctorsState {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(LoadingMore value)? loadingMore,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -134,7 +149,11 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecommendationDoctorsResponse data) success,
+    required TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)
+        success,
+    required TResult Function(List<DoctorData> currentDoctors, int currentPage)
+        loadingMore,
     required TResult Function(ApiErrorModel error) error,
   }) {
     return initial();
@@ -145,7 +164,11 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RecommendationDoctorsResponse data)? success,
+    TResult? Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult? Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult? Function(ApiErrorModel error)? error,
   }) {
     return initial?.call();
@@ -156,7 +179,11 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecommendationDoctorsResponse data)? success,
+    TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
@@ -172,6 +199,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(LoadingMore value) loadingMore,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -183,6 +211,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(LoadingMore value)? loadingMore,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -194,6 +223,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(LoadingMore value)? loadingMore,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -251,7 +281,11 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecommendationDoctorsResponse data) success,
+    required TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)
+        success,
+    required TResult Function(List<DoctorData> currentDoctors, int currentPage)
+        loadingMore,
     required TResult Function(ApiErrorModel error) error,
   }) {
     return loading();
@@ -262,7 +296,11 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RecommendationDoctorsResponse data)? success,
+    TResult? Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult? Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult? Function(ApiErrorModel error)? error,
   }) {
     return loading?.call();
@@ -273,7 +311,11 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecommendationDoctorsResponse data)? success,
+    TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
@@ -289,6 +331,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(LoadingMore value) loadingMore,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -300,6 +343,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(LoadingMore value)? loadingMore,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -311,6 +355,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(LoadingMore value)? loadingMore,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -331,7 +376,11 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RecommendationDoctorsResponse data});
+  $Res call(
+      {RecommendationDoctorsResponse data,
+      List<DoctorData> allDoctors,
+      bool hasMore,
+      int currentPage});
 }
 
 /// @nodoc
@@ -348,12 +397,27 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? allDoctors = null,
+    Object? hasMore = null,
+    Object? currentPage = null,
   }) {
     return _then(_$SuccessImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as RecommendationDoctorsResponse,
+      allDoctors: null == allDoctors
+          ? _value._allDoctors
+          : allDoctors // ignore: cast_nullable_to_non_nullable
+              as List<DoctorData>,
+      hasMore: null == hasMore
+          ? _value.hasMore
+          : hasMore // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -361,14 +425,33 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.data);
+  const _$SuccessImpl(this.data,
+      {final List<DoctorData> allDoctors = const [],
+      this.hasMore = false,
+      this.currentPage = 1})
+      : _allDoctors = allDoctors;
 
   @override
   final RecommendationDoctorsResponse data;
+  final List<DoctorData> _allDoctors;
+  @override
+  @JsonKey()
+  List<DoctorData> get allDoctors {
+    if (_allDoctors is EqualUnmodifiableListView) return _allDoctors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allDoctors);
+  }
+
+  @override
+  @JsonKey()
+  final bool hasMore;
+  @override
+  @JsonKey()
+  final int currentPage;
 
   @override
   String toString() {
-    return 'RecommendationDoctorsState.success(data: $data)';
+    return 'RecommendationDoctorsState.success(data: $data, allDoctors: $allDoctors, hasMore: $hasMore, currentPage: $currentPage)';
   }
 
   @override
@@ -376,11 +459,17 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            const DeepCollectionEquality()
+                .equals(other._allDoctors, _allDoctors) &&
+            (identical(other.hasMore, hasMore) || other.hasMore == hasMore) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data,
+      const DeepCollectionEquality().hash(_allDoctors), hasMore, currentPage);
 
   /// Create a copy of RecommendationDoctorsState
   /// with the given fields replaced by the non-null parameter values.
@@ -395,10 +484,14 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecommendationDoctorsResponse data) success,
+    required TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)
+        success,
+    required TResult Function(List<DoctorData> currentDoctors, int currentPage)
+        loadingMore,
     required TResult Function(ApiErrorModel error) error,
   }) {
-    return success(data);
+    return success(data, allDoctors, hasMore, currentPage);
   }
 
   @override
@@ -406,10 +499,14 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RecommendationDoctorsResponse data)? success,
+    TResult? Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult? Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult? Function(ApiErrorModel error)? error,
   }) {
-    return success?.call(data);
+    return success?.call(data, allDoctors, hasMore, currentPage);
   }
 
   @override
@@ -417,12 +514,16 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecommendationDoctorsResponse data)? success,
+    TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(data);
+      return success(data, allDoctors, hasMore, currentPage);
     }
     return orElse();
   }
@@ -433,6 +534,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(LoadingMore value) loadingMore,
     required TResult Function(Error value) error,
   }) {
     return success(this);
@@ -444,6 +546,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(LoadingMore value)? loadingMore,
     TResult? Function(Error value)? error,
   }) {
     return success?.call(this);
@@ -455,6 +558,7 @@ class _$SuccessImpl implements Success {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(LoadingMore value)? loadingMore,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -466,15 +570,210 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements RecommendationDoctorsState {
-  const factory Success(final RecommendationDoctorsResponse data) =
-      _$SuccessImpl;
+  const factory Success(final RecommendationDoctorsResponse data,
+      {final List<DoctorData> allDoctors,
+      final bool hasMore,
+      final int currentPage}) = _$SuccessImpl;
 
   RecommendationDoctorsResponse get data;
+  List<DoctorData> get allDoctors;
+  bool get hasMore;
+  int get currentPage;
 
   /// Create a copy of RecommendationDoctorsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingMoreImplCopyWith<$Res> {
+  factory _$$LoadingMoreImplCopyWith(
+          _$LoadingMoreImpl value, $Res Function(_$LoadingMoreImpl) then) =
+      __$$LoadingMoreImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<DoctorData> currentDoctors, int currentPage});
+}
+
+/// @nodoc
+class __$$LoadingMoreImplCopyWithImpl<$Res>
+    extends _$RecommendationDoctorsStateCopyWithImpl<$Res, _$LoadingMoreImpl>
+    implements _$$LoadingMoreImplCopyWith<$Res> {
+  __$$LoadingMoreImplCopyWithImpl(
+      _$LoadingMoreImpl _value, $Res Function(_$LoadingMoreImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RecommendationDoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentDoctors = null,
+    Object? currentPage = null,
+  }) {
+    return _then(_$LoadingMoreImpl(
+      currentDoctors: null == currentDoctors
+          ? _value._currentDoctors
+          : currentDoctors // ignore: cast_nullable_to_non_nullable
+              as List<DoctorData>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadingMoreImpl implements LoadingMore {
+  const _$LoadingMoreImpl(
+      {required final List<DoctorData> currentDoctors,
+      required this.currentPage})
+      : _currentDoctors = currentDoctors;
+
+  final List<DoctorData> _currentDoctors;
+  @override
+  List<DoctorData> get currentDoctors {
+    if (_currentDoctors is EqualUnmodifiableListView) return _currentDoctors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_currentDoctors);
+  }
+
+  @override
+  final int currentPage;
+
+  @override
+  String toString() {
+    return 'RecommendationDoctorsState.loadingMore(currentDoctors: $currentDoctors, currentPage: $currentPage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingMoreImpl &&
+            const DeepCollectionEquality()
+                .equals(other._currentDoctors, _currentDoctors) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_currentDoctors), currentPage);
+
+  /// Create a copy of RecommendationDoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingMoreImplCopyWith<_$LoadingMoreImpl> get copyWith =>
+      __$$LoadingMoreImplCopyWithImpl<_$LoadingMoreImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)
+        success,
+    required TResult Function(List<DoctorData> currentDoctors, int currentPage)
+        loadingMore,
+    required TResult Function(ApiErrorModel error) error,
+  }) {
+    return loadingMore(currentDoctors, currentPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult? Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
+    TResult? Function(ApiErrorModel error)? error,
+  }) {
+    return loadingMore?.call(currentDoctors, currentPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
+    TResult Function(ApiErrorModel error)? error,
+    required TResult orElse(),
+  }) {
+    if (loadingMore != null) {
+      return loadingMore(currentDoctors, currentPage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(LoadingMore value) loadingMore,
+    required TResult Function(Error value) error,
+  }) {
+    return loadingMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(LoadingMore value)? loadingMore,
+    TResult? Function(Error value)? error,
+  }) {
+    return loadingMore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(LoadingMore value)? loadingMore,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loadingMore != null) {
+      return loadingMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingMore implements RecommendationDoctorsState {
+  const factory LoadingMore(
+      {required final List<DoctorData> currentDoctors,
+      required final int currentPage}) = _$LoadingMoreImpl;
+
+  List<DoctorData> get currentDoctors;
+  int get currentPage;
+
+  /// Create a copy of RecommendationDoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadingMoreImplCopyWith<_$LoadingMoreImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -548,7 +847,11 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecommendationDoctorsResponse data) success,
+    required TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)
+        success,
+    required TResult Function(List<DoctorData> currentDoctors, int currentPage)
+        loadingMore,
     required TResult Function(ApiErrorModel error) error,
   }) {
     return error(this.error);
@@ -559,7 +862,11 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(RecommendationDoctorsResponse data)? success,
+    TResult? Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult? Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult? Function(ApiErrorModel error)? error,
   }) {
     return error?.call(this.error);
@@ -570,7 +877,11 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecommendationDoctorsResponse data)? success,
+    TResult Function(RecommendationDoctorsResponse data,
+            List<DoctorData> allDoctors, bool hasMore, int currentPage)?
+        success,
+    TResult Function(List<DoctorData> currentDoctors, int currentPage)?
+        loadingMore,
     TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
@@ -586,6 +897,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
+    required TResult Function(LoadingMore value) loadingMore,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -597,6 +909,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
+    TResult? Function(LoadingMore value)? loadingMore,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -608,6 +921,7 @@ class _$ErrorImpl implements Error {
     TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
+    TResult Function(LoadingMore value)? loadingMore,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {

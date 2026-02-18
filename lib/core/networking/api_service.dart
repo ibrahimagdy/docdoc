@@ -80,5 +80,9 @@ abstract class ApiService {
   @GET(ApiConstants.recommendationDoctors)
   Future<RecommendationDoctorsResponse> getRecommendationDoctors(
     @Header('Authorization') String token,
+    @Query('pageSize') int? pageSize,
+    @Query('pageIndex') int? pageIndex,
+    @Query('Name') String? name,
+    @Query('Specialization') String? specialization,
   );
 }

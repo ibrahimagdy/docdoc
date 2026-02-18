@@ -8,14 +8,14 @@ class RecommendationDoctorsResponse {
   @JsonKey(name: 'messsage')
   final String message;
   @JsonKey(name: 'data')
-  final DoctorsPaginationData doctorsData;
+  final DoctorsPaginationData? doctorsData;
   final String? errors;
   final int statusCode;
 
   RecommendationDoctorsResponse({
     required this.success,
     required this.message,
-    required this.doctorsData,
+    this.doctorsData,
     this.errors,
     required this.statusCode,
   });

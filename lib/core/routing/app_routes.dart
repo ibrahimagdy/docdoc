@@ -11,8 +11,10 @@ import 'package:doctors_app/features/auth/reset_password/ui/reset_password_scree
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/home/ui/see_all_doctor_speciality_screen.dart';
+import 'package:doctors_app/features/home/ui/see_all_recommendation_doctors_screen.dart';
 import 'package:doctors_app/features/layout/app_layout.dart';
 import 'package:doctors_app/features/onboarding/onboarding_screen.dart';
 import 'package:doctors_app/features/personal_info/ui/personal_info_screen.dart';
@@ -92,6 +94,15 @@ class AppRoutes {
               child: const SeeAllDoctorSpecialityScreen(),
             );
           },
+        );
+      case Routes.seeAllRecommendationDoctorsScreen:
+        final recommendationDoctorsCubit =
+            settings.arguments as RecommendationDoctorsCubit;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: recommendationDoctorsCubit,
+            child: const SeeAllRecommendationDoctorsScreen(),
+          ),
         );
       default:
         return MaterialPageRoute(
