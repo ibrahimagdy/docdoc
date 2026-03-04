@@ -14,6 +14,7 @@ class RecommendationDoctorsRepo {
     int? pageIndex,
     String? name,
     String? specialization,
+    double? rate,
   }) async {
     try {
       final userToken = await SharedPrefHelper.getSecuredString(
@@ -26,6 +27,7 @@ class RecommendationDoctorsRepo {
         pageIndex,
         name,
         specialization,
+        rate,
       );
       return ApiResult.success(response);
     } catch (error) {

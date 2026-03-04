@@ -10,6 +10,7 @@ class RecommendationDoctorsCubit extends Cubit<RecommendationDoctorsState> {
   static const int _pageSize = 10;
   int _currentPage = 1;
   String? _searchQuery;
+  double? _selectedRating;
   bool _isSearchingByName = true;
   List<DoctorData> _allDoctors = [];
   Timer? _debounceTimer;
@@ -38,6 +39,7 @@ class RecommendationDoctorsCubit extends Cubit<RecommendationDoctorsState> {
     _currentPage = 1;
     _allDoctors = [];
     _searchQuery = null;
+    _selectedRating = null;
     _isSearchingByName = true;
     _isLoadingMore = false;
     emit(const RecommendationDoctorsState.loading());
@@ -75,6 +77,19 @@ class RecommendationDoctorsCubit extends Cubit<RecommendationDoctorsState> {
     });
   }
 
+  // Filter by specialization and rating
+  void applyFilters({String? specialization, double? rating}) async {
+    _currentPage = 1;
+    _allDoctors = [];
+    _isLoadingMore = false;
+    _searchQuery = specialization;
+    _selectedRating = rating;
+    _isSearchingByName = false; // Search by specialization
+
+    emit(const RecommendationDoctorsState.loading());
+    await _fetchPage();
+  }
+
   Future<void> _fetchPage() async {
     final String? nameParam = _isSearchingByName ? _searchQuery : null;
     final String? specializationParam =
@@ -85,6 +100,7 @@ class RecommendationDoctorsCubit extends Cubit<RecommendationDoctorsState> {
       pageIndex: _currentPage,
       name: nameParam,
       specialization: specializationParam,
+      rate: _selectedRating,
     );
 
     response.when(
