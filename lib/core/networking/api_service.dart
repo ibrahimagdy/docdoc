@@ -84,5 +84,6 @@ abstract class ApiService {
     @Query('pageIndex') int? pageIndex,
     @Query('Name') String? name,
     @Query('Specialization') String? specialization,
+    @Query('Rate') double? rate,
   );
 }

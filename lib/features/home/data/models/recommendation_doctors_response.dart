@@ -54,7 +54,7 @@ class DoctorData {
   final String fullName;
   final String specializationName;
   final String address;
-  final int rate;
+  final double rate;
   final int reviewsCount;
 
   DoctorData({

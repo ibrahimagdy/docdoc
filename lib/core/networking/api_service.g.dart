@@ -328,6 +328,7 @@ class _ApiService implements ApiService {
     int? pageIndex,
     String? name,
     String? specialization,
+    double? rate,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -335,6 +336,7 @@ class _ApiService implements ApiService {
       r'pageIndex': pageIndex,
       r'Name': name,
       r'Specialization': specialization,
+      r'Rate': rate,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': token};

@@ -2,7 +2,6 @@ import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
-import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_blue_container.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_bloc_builder.dart';
 import 'package:doctors_app/features/home/ui/widgets/home_top_bar.dart';
@@ -54,11 +53,14 @@ class HomeScreen extends StatelessWidget {
                     SeeAllWidget(
                       text: "Recommendation Doctor",
                       onTap: () {
-                        final cubit =
-                            context.read<RecommendationDoctorsCubit>();
+                        final specializationsCubit =
+                            context.read<SpecializationsCubit>();
+
                         context.pushNamed(
                           Routes.seeAllRecommendationDoctorsScreen,
-                          arguments: cubit,
+                          arguments: {
+                            'specializationsCubit': specializationsCubit,
+                          },
                         );
                       },
                     ),

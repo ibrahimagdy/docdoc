@@ -54,7 +54,7 @@ DoctorData _$DoctorDataFromJson(Map<String, dynamic> json) => DoctorData(
       fullName: json['fullName'] as String,
       specializationName: json['specializationName'] as String,
       address: json['address'] as String,
-      rate: (json['rate'] as num).toInt(),
+      rate: (json['rate'] as num).toDouble(),
       reviewsCount: (json['reviewsCount'] as num).toInt(),
     );
 

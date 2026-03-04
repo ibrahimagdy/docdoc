@@ -96,12 +96,17 @@ class AppRoutes {
           },
         );
       case Routes.seeAllRecommendationDoctorsScreen:
-        final recommendationDoctorsCubit =
-            settings.arguments as RecommendationDoctorsCubit;
+        // Expecting a Map with specializationsCubit
+        final args = settings.arguments as Map<String, dynamic>;
+        final specializationsCubit =
+            args['specializationsCubit'] as SpecializationsCubit;
+
         return MaterialPageRoute(
-          builder: (context) => BlocProvider.value(
-            value: recommendationDoctorsCubit,
-            child: const SeeAllRecommendationDoctorsScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<RecommendationDoctorsCubit>(),
+            child: SeeAllRecommendationDoctorsScreen(
+              specializationsCubit: specializationsCubit,
+            ),
           ),
         );
       default:
