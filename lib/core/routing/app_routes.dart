@@ -10,7 +10,7 @@ import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cu
 import 'package:doctors_app/features/auth/reset_password/ui/reset_password_screen.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
-import 'package:doctors_app/features/doctor_details/logic/doctor_details_cubit.dart';
+import 'package:doctors_app/features/doctor_details/logic/doctor_details/doctor_details_cubit.dart';
 import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_full_screen_map.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';

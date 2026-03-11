@@ -2,9 +2,12 @@ import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:doctors_app/features/doctor_details/data/models/doctor_details_response.dart';
+import 'package:doctors_app/features/doctor_details/logic/reviews/reviews_cubit.dart';
 import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_about_tab.dart';
 import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_location_tab.dart';
+import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_reviews_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorDetailsTabBar extends StatefulWidget {
@@ -23,10 +26,19 @@ class _DoctorDetailsTabBarState extends State<DoctorDetailsTabBar>
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(_onTabChanged);
+  }
+
+  void _onTabChanged() {
+    // When switching to Reviews tab (index 2), load reviews
+    if (_tabController.index == 2) {
+      context.read<ReviewsCubit>().getReviews(widget.doctorDetails.id);
+    }
   }
 
   @override
   void dispose() {
+    _tabController.removeListener(_onTabChanged);
     _tabController.dispose();
     super.dispose();
   }
@@ -58,7 +70,7 @@ class _DoctorDetailsTabBarState extends State<DoctorDetailsTabBar>
               children: [
                 DoctorDetailsAboutTab(doctorDetails: widget.doctorDetails),
                 DoctorDetailsLocationTab(doctorDetails: widget.doctorDetails),
-                DoctorDetailsAboutTab(doctorDetails: widget.doctorDetails),
+                DoctorDetailsReviewsTab(doctorId: widget.doctorDetails.id),
               ],
             ),
           ),

@@ -10,6 +10,7 @@ class ApiConstants {
   static const String specializations = 'Spcializations';
   static const String recommendationDoctors = 'Doctors';
   static const String doctorDetails = 'Doctors/id';
+  static const String reviews = 'Review';
 }
 
 class ApiErrors {
