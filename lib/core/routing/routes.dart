@@ -13,4 +13,7 @@ class Routes {
       '/seeAllDoctorSpecialityScreen';
   static const String seeAllRecommendationDoctorsScreen =
       '/seeAllRecommendationDoctorsScreen';
+  static const String doctorDetailsScreen = '/doctorDetailsScreen';
+  static const String doctorDetailsFullScreenMap =
+      '/doctorDetailsFullScreenMap';
 }

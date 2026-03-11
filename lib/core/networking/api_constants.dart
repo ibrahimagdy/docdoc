@@ -9,6 +9,7 @@ class ApiConstants {
   static const String profileImage = "Profile/profileImage";
   static const String specializations = 'Spcializations';
   static const String recommendationDoctors = 'Doctors';
+  static const String doctorDetails = 'Doctors/id';
 }
 
 class ApiErrors {

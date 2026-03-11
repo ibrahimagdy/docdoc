@@ -50,6 +50,7 @@ Map<String, dynamic> _$DoctorsPaginationDataToJson(
     };
 
 DoctorData _$DoctorDataFromJson(Map<String, dynamic> json) => DoctorData(
+      id: json['id'] as String,
       profileImage: DoctorData._fixImageUrl(json['profileImage'] as String),
       fullName: json['fullName'] as String,
       specializationName: json['specializationName'] as String,
@@ -60,6 +61,7 @@ DoctorData _$DoctorDataFromJson(Map<String, dynamic> json) => DoctorData(
 
 Map<String, dynamic> _$DoctorDataToJson(DoctorData instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'profileImage': instance.profileImage,
       'fullName': instance.fullName,
       'specializationName': instance.specializationName,

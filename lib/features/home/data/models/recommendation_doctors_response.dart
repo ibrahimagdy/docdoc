@@ -49,6 +49,7 @@ class DoctorsPaginationData {
 
 @JsonSerializable()
 class DoctorData {
+  final String id;
   @JsonKey(fromJson: _fixImageUrl)
   final String profileImage;
   final String fullName;
@@ -58,6 +59,7 @@ class DoctorData {
   final int reviewsCount;
 
   DoctorData({
+    required this.id,
     required this.profileImage,
     required this.fullName,
     required this.specializationName,
