@@ -61,12 +61,14 @@ dependencies:
   # Flutter plugin for reading and writing simple key-value pairs. Wraps NSUserDefaults on iOS and SharedPreferences on Android.
   shared_preferences: ^2.3.3
   # Flutter Secure Storage provides API to store data in secure storage. Keychain is used in iOS, KeyStore based solution is used in Android.
-  flutter_secure_storage: ^4.2.1
+  flutter_secure_storage: ^10.0.0
   # Flutter library to load and cache network images.
   cached_network_image: ^3.4.1
   # Flutter plugin for selecting images from the Android and iOS image library, and taking new pictures with the camera.
   image_picker: ^1.2.0
   shimmer: ^3.0.0
+  google_maps_flutter: ^2.14.2
+  url_launcher: ^6.3.2
 
 
 dev_dependencies:

@@ -10,8 +10,11 @@ import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cu
 import 'package:doctors_app/features/auth/reset_password/ui/reset_password_screen.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
+import 'package:doctors_app/features/doctor_details/logic/doctor_details_cubit.dart';
+import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_full_screen_map.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
+import 'package:doctors_app/features/doctor_details/ui/doctor_details_screen.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/home/ui/see_all_doctor_speciality_screen.dart';
 import 'package:doctors_app/features/home/ui/see_all_recommendation_doctors_screen.dart';
@@ -22,6 +25,7 @@ import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
 import 'package:doctors_app/features/settings/ui/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AppRoutes {
   Route generateRoute(RouteSettings settings) {
@@ -107,6 +111,27 @@ class AppRoutes {
             child: SeeAllRecommendationDoctorsScreen(
               specializationsCubit: specializationsCubit,
             ),
+          ),
+        );
+      case Routes.doctorDetailsScreen:
+        final doctorId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<DoctorDetailsCubit>(),
+            child: DoctorDetailsScreen(doctorId: doctorId),
+          ),
+        );
+      case Routes.doctorDetailsFullScreenMap:
+        final args = settings.arguments as Map<String, dynamic>;
+        final location = args['location'] as LatLng;
+        final title = args['title'] as String;
+        final address = args['address'] as String;
+
+        return MaterialPageRoute(
+          builder: (context) => DoctorDetailsFullScreenMap(
+            location: location,
+            title: title,
+            address: address,
           ),
         );
       default:

@@ -2,7 +2,6 @@ import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:doctors_app/core/widgets/app_text_form_field.dart';
 import 'package:doctors_app/core/widgets/custom_app_bar.dart';
-import 'package:doctors_app/core/widgets/end_app_bar_widget.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/home/ui/widgets/recommendation_doctors/doctors_list_view.dart';
@@ -99,7 +98,6 @@ class _SeeAllRecommendationDoctorsScreenState
               verticalSpace(16),
               const CustomAppBar(
                 title: 'Recommendation Doctors',
-                endWidget: EndAppBarWidget(icon: Icons.more_horiz),
               ),
               verticalSpace(32),
               Row(
