@@ -1,8 +1,8 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:doctors_app/core/theming/styles.dart';
-import 'package:doctors_app/features/doctor_details/logic/doctor_details_cubit.dart';
-import 'package:doctors_app/features/doctor_details/logic/doctor_details_state.dart';
+import 'package:doctors_app/features/doctor_details/logic/doctor_details/doctor_details_cubit.dart';
+import 'package:doctors_app/features/doctor_details/logic/doctor_details/doctor_details_state.dart';
 import 'package:doctors_app/features/doctor_details/ui/loading_shimmer/doctor_details_shimmer.dart';
 import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_content.dart';
 import 'package:flutter/material.dart';

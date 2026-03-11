@@ -10,6 +10,7 @@ import 'package:doctors_app/features/auth/reset_password/data/models/reset_passw
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_request_body.dart';
 import 'package:doctors_app/features/auth/sign_up/data/model/sign_up_response.dart';
 import 'package:doctors_app/features/doctor_details/data/models/doctor_details_response.dart';
+import 'package:doctors_app/features/doctor_details/data/models/reviews_response.dart';
 import 'package:doctors_app/features/home/data/models/recommendation_doctors_response.dart';
 import 'package:doctors_app/features/home/data/models/specializations_response.dart';
 import 'package:doctors_app/features/personal_info/data/models/update_profile_image_response.dart';
@@ -92,5 +93,13 @@ abstract class ApiService {
   Future<DoctorDetailsResponse> getDoctorDetails(
     @Header('Authorization') String token,
     @Query('DoctorId') String doctorId,
+  );
+
+  @GET(ApiConstants.reviews)
+  Future<ReviewsResponse> getReviews(
+    @Header('Authorization') String token,
+    @Query('doctorId') String doctorId,
+    @Query('pageSize') int? pageSize,
+    @Query('pageIndex') int? pageIndex,
   );
 }

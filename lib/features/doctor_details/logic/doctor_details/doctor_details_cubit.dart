@@ -1,6 +1,6 @@
 import 'package:doctors_app/core/networking/api_error_model.dart';
 import 'package:doctors_app/features/doctor_details/data/repos/doctor_details_repo.dart';
-import 'package:doctors_app/features/doctor_details/logic/doctor_details_state.dart';
+import 'package:doctors_app/features/doctor_details/logic/doctor_details/doctor_details_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoctorDetailsCubit extends Cubit<DoctorDetailsState> {
