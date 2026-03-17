@@ -1,4 +1,6 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:doctors_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,9 @@ class DoctorBlueContainer extends StatelessWidget {
                 ),
                 verticalSpace(16),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(Routes.findNearbyLocationScreen);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(

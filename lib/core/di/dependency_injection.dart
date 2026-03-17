@@ -18,6 +18,7 @@ import 'package:doctors_app/features/home/data/repos/recommendation_doctors_repo
 import 'package:doctors_app/features/home/data/repos/specializations_repo.dart';
 import 'package:doctors_app/features/doctor_details/logic/doctor_details/doctor_details_cubit.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/find_nearby/find_nearby_cubit.dart';
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/personal_info/data/repos/personal_info_repo.dart';
 import 'package:doctors_app/features/personal_info/logic/personal_info_cubit.dart';
@@ -94,5 +95,10 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<ReviewsCubit>(
     () => ReviewsCubit(getIt()),
+  );
+
+  /// find nearby
+  getIt.registerFactory<FindNearbyCubit>(
+    () => FindNearbyCubit(getIt()),
   );
 }

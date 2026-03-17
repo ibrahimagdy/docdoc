@@ -15,6 +15,7 @@ import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_fu
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/doctor_details/ui/doctor_details_screen.dart';
+import 'package:doctors_app/features/home/ui/find_nearby_screen.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/home/ui/see_all_doctor_speciality_screen.dart';
 import 'package:doctors_app/features/home/ui/see_all_recommendation_doctors_screen.dart';
@@ -100,7 +101,6 @@ class AppRoutes {
           },
         );
       case Routes.seeAllRecommendationDoctorsScreen:
-        // Expecting a Map with specializationsCubit
         final args = settings.arguments as Map<String, dynamic>;
         final specializationsCubit =
             args['specializationsCubit'] as SpecializationsCubit;
@@ -133,6 +133,10 @@ class AppRoutes {
             title: title,
             address: address,
           ),
+        );
+      case Routes.findNearbyLocationScreen:
+        return MaterialPageRoute(
+          builder: (context) => const FindNearbyScreen(),
         );
       default:
         return MaterialPageRoute(
