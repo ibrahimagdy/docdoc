@@ -55,6 +55,8 @@ class DoctorData {
   final String fullName;
   final String specializationName;
   final String address;
+  final double latitude;
+  final double longitude;
   final double rate;
   final int reviewsCount;
 
@@ -64,6 +66,8 @@ class DoctorData {
     required this.fullName,
     required this.specializationName,
     required this.address,
+    required this.latitude,
+    required this.longitude,
     required this.rate,
     required this.reviewsCount,
   });

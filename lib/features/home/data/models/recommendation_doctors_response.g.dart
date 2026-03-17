@@ -55,6 +55,8 @@ DoctorData _$DoctorDataFromJson(Map<String, dynamic> json) => DoctorData(
       fullName: json['fullName'] as String,
       specializationName: json['specializationName'] as String,
       address: json['address'] as String,
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
       rate: (json['rate'] as num).toDouble(),
       reviewsCount: (json['reviewsCount'] as num).toInt(),
     );
@@ -66,6 +68,8 @@ Map<String, dynamic> _$DoctorDataToJson(DoctorData instance) =>
       'fullName': instance.fullName,
       'specializationName': instance.specializationName,
       'address': instance.address,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
       'rate': instance.rate,
       'reviewsCount': instance.reviewsCount,
     };
