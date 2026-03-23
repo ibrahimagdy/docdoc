@@ -6,6 +6,7 @@ import 'package:doctors_app/doc_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
@@ -19,7 +20,8 @@ void main() async {
 }
 
 checkIfLoggedInUser() async {
-  bool isFirstTime = await SharedPrefHelper.getBool(SharedPrefKeys.isFirstTime, defaultValue: true);
+  bool isFirstTime = await SharedPrefHelper.getBool(SharedPrefKeys.isFirstTime,
+      defaultValue: true);
 
   if (isFirstTime) {
     await SharedPrefHelper.clearAllSecuredData();
@@ -28,7 +30,8 @@ checkIfLoggedInUser() async {
     return;
   }
 
-  String? userToken = await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  String? userToken =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
   if (!userToken.isNullOrEmpty()) {
     isLoggedInUser = true;
   } else {
