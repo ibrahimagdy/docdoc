@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
+import 'package:doctors_app/core/routing/routes.dart';
+import 'package:doctors_app/main.dart';
+import 'package:flutter/material.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -29,6 +32,33 @@ class DioFactory {
         responseHeader: true,
       ),
     );
+
+    dio?.interceptors.add(
+      InterceptorsWrapper(
+        onError: (DioException error, ErrorInterceptorHandler handler) async {
+          if (error.response?.statusCode == 401) {
+            await _handleUnauthorized();
+          }
+          handler.next(error);
+        },
+      ),
+    );
+  }
+
+  static Future<void> _handleUnauthorized() async {
+    await SharedPrefHelper.clearAllData();
+    await SharedPrefHelper.clearAllSecuredData();
+    isLoggedInUser = false;
+
+    final context = navigatorKey.currentContext;
+    if (context != null) {
+      if (context.mounted) {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          Routes.loginScreen,
+          (route) => false,
+        );
+      }
+    }
   }
 
   static void addDioHeader() async {
