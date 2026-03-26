@@ -1,5 +1,7 @@
 import 'package:doctors_app/core/di/dependency_injection.dart';
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/widgets/app_text_button.dart';
 import 'package:doctors_app/core/widgets/custom_app_bar.dart';
 import 'package:doctors_app/features/doctor_details/data/models/doctor_details_response.dart';
@@ -42,7 +44,9 @@ class DoctorDetailsContent extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: AppTextButton(
                 text: 'Make An Appointment',
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(Routes.bookAppointmentScreen);
+                },
               ),
             ),
             verticalSpace(16),

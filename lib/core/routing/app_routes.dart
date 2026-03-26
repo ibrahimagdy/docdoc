@@ -10,9 +10,11 @@ import 'package:doctors_app/features/auth/reset_password/logic/reset_password_cu
 import 'package:doctors_app/features/auth/reset_password/ui/reset_password_screen.dart';
 import 'package:doctors_app/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:doctors_app/features/auth/sign_up/ui/sign_up_screen.dart';
+import 'package:doctors_app/features/book_appointment/ui/book_appointment_screen.dart';
 import 'package:doctors_app/features/doctor_details/logic/doctor_details/doctor_details_cubit.dart';
 import 'package:doctors_app/features/doctor_details/ui/widgets/doctor_details_full_screen_map.dart';
 import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
+import 'package:doctors_app/features/home/logic/find_nearby/find_nearby_cubit.dart';
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/doctor_details/ui/doctor_details_screen.dart';
 import 'package:doctors_app/features/home/ui/find_nearby_screen.dart';
@@ -136,7 +138,14 @@ class AppRoutes {
         );
       case Routes.findNearbyLocationScreen:
         return MaterialPageRoute(
-          builder: (context) => const FindNearbyScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<FindNearbyCubit>()..getNearbyDoctors(),
+            child: const FindNearbyScreen(),
+          ),
+        );
+      case Routes.bookAppointmentScreen:
+        return MaterialPageRoute(
+          builder: (context) => const BookAppointmentScreen(),
         );
       default:
         return MaterialPageRoute(
