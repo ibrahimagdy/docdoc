@@ -17,4 +17,5 @@ class ColorManger {
   static const Color black = Colors.black;
   static const Color otherBlack = Color(0XFF121212);
   static const Color red = Color(0XFFFF4C5E);
+  static const Color green = Color(0xFF22C55E);
 }

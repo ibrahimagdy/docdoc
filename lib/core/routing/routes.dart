@@ -17,4 +17,5 @@ class Routes {
   static const String doctorDetailsFullScreenMap =
       '/doctorDetailsFullScreenMap';
   static const String findNearbyLocationScreen = '/findNearbyLocationScreen';
+  static const String bookAppointmentScreen = '/bookAppointmentScreen';
 }
