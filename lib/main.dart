@@ -4,11 +4,13 @@ import 'package:doctors_app/core/helpers/shared_perf_helper.dart';
 import 'package:doctors_app/core/routing/app_routes.dart';
 import 'package:doctors_app/doc_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   setupGetIt();
   await ScreenUtil.ensureScreenSize();
   await checkIfLoggedInUser();

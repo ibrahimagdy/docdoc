@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                 Column(
                   children: [
                     const EmailAndPassword(),
-                    verticalSpace(16),
+                    verticalSpace(8),
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: TextButton(
@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    verticalSpace(32),
+                    verticalSpace(16),
                     AppTextButton(
                       text: 'Login',
                       onPressed: () {
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     verticalSpace(16),
                     const TermsAndConditionsText(),
-                    verticalSpace(60),
+                    verticalSpace(30),
                     const DontHaveAccountText(),
                     const LoginBlocListener(),
                   ],

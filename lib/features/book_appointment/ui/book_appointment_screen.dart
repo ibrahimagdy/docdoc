@@ -1,6 +1,7 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/widgets/custom_app_bar.dart';
 import 'package:doctors_app/features/book_appointment/ui/date_and_time_step.dart';
+import 'package:doctors_app/features/book_appointment/ui/payment_step.dart';
 import 'package:doctors_app/features/book_appointment/ui/widgets/book_appointment/booking_stepper_widget.dart';
 import 'package:doctors_app/features/book_appointment/ui/widgets/date_and_time_step/step_with_button.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,13 @@ class BookAppointmentScreen extends StatefulWidget {
 
 class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
   final PageController _pageController = PageController();
+  final GlobalKey<PaymentStepState> _paymentStepKey =
+      GlobalKey<PaymentStepState>();
+
   int _currentStep = 0;
 
   final List<String> _stepTitles = ['Date & Time', 'Payment', 'Summary'];
 
-  // Step 1 validation state
   DateTime? _selectedDate;
   String? _selectedTime;
   String? _selectedAppointmentType;
@@ -82,23 +85,21 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                     onLastStep: _bookNow,
                     isButtonEnabled: _isStep1Valid,
                     child: DateAndTimeStep(
-                      onDateChanged: (date) => setState(
-                        () => _selectedDate = date,
-                      ),
-                      onTimeChanged: (time) => setState(
-                        () => _selectedTime = time,
-                      ),
-                      onTypeChanged: (type) => setState(
-                        () => _selectedAppointmentType = type,
-                      ),
+                      onDateChanged: (date) =>
+                          setState(() => _selectedDate = date),
+                      onTimeChanged: (time) =>
+                          setState(() => _selectedTime = time),
+                      onTypeChanged: (type) =>
+                          setState(() => _selectedAppointmentType = type),
                     ),
                   ),
                   StepWithButton(
                     currentStep: _currentStep,
                     totalSteps: _stepTitles.length,
-                    onNext: _goToNextPage,
+                    onNext: () =>
+                        _paymentStepKey.currentState?.proceedToPayment(),
                     onLastStep: _bookNow,
-                    child: const SizedBox(),
+                    child: PaymentStep(key: _paymentStepKey),
                   ),
                   StepWithButton(
                     currentStep: _currentStep,

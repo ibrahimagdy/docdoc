@@ -1,6 +1,7 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/colors.dart';
 import 'package:doctors_app/core/theming/styles.dart';
+import 'package:doctors_app/core/widgets/selection_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -50,29 +51,7 @@ class AppointmentTypeItem extends StatelessWidget {
                   style: TextStyles.font14DarkBlueRegular,
                 ),
               ),
-              Container(
-                width: 20.w,
-                height: 20.h,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: ColorManger.mainBlue.withValues(alpha: 0.4),
-                    width: 2,
-                  ),
-                ),
-                child: isSelected
-                    ? Center(
-                        child: Container(
-                          width: 10.w,
-                          height: 10.h,
-                          decoration: const BoxDecoration(
-                            color: ColorManger.mainBlue,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                      )
-                    : null,
-              ),
+              SelectionCircle(isSelected: isSelected),
             ],
           ),
           verticalSpace(16),
