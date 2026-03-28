@@ -106,12 +106,14 @@ class AppRoutes {
         final args = settings.arguments as Map<String, dynamic>;
         final specializationsCubit =
             args['specializationsCubit'] as SpecializationsCubit;
+        final selectedSpeciality = args['selectedSpeciality'] as String?;
 
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<RecommendationDoctorsCubit>(),
             child: SeeAllRecommendationDoctorsScreen(
               specializationsCubit: specializationsCubit,
+              selectedSpeciality: selectedSpeciality,
             ),
           ),
         );

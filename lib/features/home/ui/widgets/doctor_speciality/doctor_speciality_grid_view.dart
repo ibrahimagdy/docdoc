@@ -1,11 +1,16 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/features/home/data/models/specializations_response.dart';
+import 'package:doctors_app/features/home/logic/doctor_speciality/specializations_cubit.dart';
 import 'package:doctors_app/features/home/ui/widgets/doctor_speciality/doctor_speciality_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorSpecialityGridView extends StatelessWidget {
   final List<SpecializationData> specializations;
   final double spacing;
+
   const DoctorSpecialityGridView({
     super.key,
     required this.specializations,
@@ -26,10 +31,22 @@ class DoctorSpecialityGridView extends StatelessWidget {
       ),
       itemCount: specializations.length,
       itemBuilder: (context, index) {
+        final specialization = specializations[index];
         return DoctorSpecialityItem(
-          specializationData: specializations[index],
+          specializationData: specialization,
           isGridView: true,
+          onTap: () => _navigateToFilteredDoctors(context, specialization.name),
         );
+      },
+    );
+  }
+
+  void _navigateToFilteredDoctors(BuildContext context, String specialityName) {
+    context.pushNamed(
+      Routes.seeAllRecommendationDoctorsScreen,
+      arguments: {
+        'specializationsCubit': context.read<SpecializationsCubit>(),
+        'selectedSpeciality': specialityName,
       },
     );
   }

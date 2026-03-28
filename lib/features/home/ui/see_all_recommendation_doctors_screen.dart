@@ -13,10 +13,12 @@ import 'package:flutter_svg/svg.dart';
 
 class SeeAllRecommendationDoctorsScreen extends StatefulWidget {
   final SpecializationsCubit specializationsCubit;
+  final String? selectedSpeciality;
 
   const SeeAllRecommendationDoctorsScreen({
     super.key,
     required this.specializationsCubit,
+    this.selectedSpeciality,
   });
 
   @override
@@ -35,14 +37,22 @@ class _SeeAllRecommendationDoctorsScreenState
   @override
   void initState() {
     super.initState();
-    context.read<RecommendationDoctorsCubit>().getAllDoctors();
+    _selectedSpeciality = widget.selectedSpeciality;
     _scrollController.addListener(_onScroll);
+
+    if (_selectedSpeciality != null) {
+      context.read<RecommendationDoctorsCubit>().applyFilters(
+            specialization: _selectedSpeciality,
+            rating: null,
+          );
+    } else {
+      context.read<RecommendationDoctorsCubit>().getAllDoctors();
+    }
   }
 
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
-
     if (currentScroll >= maxScroll * 0.5) {
       context.read<RecommendationDoctorsCubit>().loadMore();
     }
@@ -68,7 +78,6 @@ class _SeeAllRecommendationDoctorsScreenState
                 _selectedSpeciality = speciality;
                 _selectedRating = rating;
               });
-
               recommendationDoctorsCubit.applyFilters(
                 specialization: speciality,
                 rating: rating,
@@ -96,9 +105,7 @@ class _SeeAllRecommendationDoctorsScreenState
           child: Column(
             children: [
               verticalSpace(16),
-              const CustomAppBar(
-                title: 'Recommendation Doctors',
-              ),
+              const CustomAppBar(title: 'Recommendation Doctors'),
               verticalSpace(32),
               Row(
                 children: [
