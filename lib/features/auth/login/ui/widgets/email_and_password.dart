@@ -3,7 +3,6 @@ import 'package:doctors_app/core/helpers/app_validation.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/widgets/app_text_form_field.dart';
 import 'package:doctors_app/features/auth/login/logic/login_cubit.dart';
-import 'package:doctors_app/features/auth/login/ui/widgets/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,11 +34,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   }
 
   void setupPasswordControllerListener() {
-    passwordController.addListener((){
+    passwordController.addListener(() {
       setState(() {
         hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
         hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialCharacters = AppRegex.hasSpecialCharacter(passwordController.text);
+        hasSpecialCharacters =
+            AppRegex.hasSpecialCharacter(passwordController.text);
         hasNumber = AppRegex.hasNumber(passwordController.text);
         hasMinLength = AppRegex.hasMinLength(passwordController.text);
       });
@@ -74,17 +74,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               ),
             ),
           ),
-          verticalSpace(24),
-          PasswordValidations(
-            hasLowerCase: hasLowerCase,
-            hasUpperCase: hasUpperCase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
-          ),
         ],
       ),
     );
   }
-
 }

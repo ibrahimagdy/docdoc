@@ -48,18 +48,23 @@
 		<key>UIStatusBarHidden</key>
 		<false/>
 		<key>NSCameraUsageDescription</key>
-        <string>This app needs access to camera to take profile photos</string>
-        <key>NSPhotoLibraryUsageDescription</key>
-        <string>This app needs access to photo library to select profile photos</string>
+		<string>This app needs access to camera to take profile photos</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>This app needs access to photo library to select profile photos</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-        <string>This app needs access to your location to show nearby doctors on the map.</string>
-        <key>NSLocationAlwaysUsageDescription</key>
-        <string>This app needs access to your location to show nearby doctors on the map.</string>
+		<string>This app needs access to your location to show nearby doctors on the map.</string>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>This app needs access to your location to show nearby doctors on the map.</string>
 		<key>LSApplicationQueriesSchemes</key>
 		<array>
-		<string>comgooglemaps</string>
-		<string>http</string>
-		<string>https</string>
+			<string>comgooglemaps</string>
+			<string>http</string>
+			<string>https</string>
 		</array>
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<true/>
+		</dict>
 	</dict>
 </plist>
