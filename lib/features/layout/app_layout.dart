@@ -5,6 +5,7 @@ import 'package:doctors_app/features/home/logic/doctor_speciality/specialization
 import 'package:doctors_app/features/home/logic/recommendation_doctors/recommendation_doctors_cubit.dart';
 import 'package:doctors_app/features/home/ui/home_screen.dart';
 import 'package:doctors_app/features/layout/widgets/bottom_nav_item.dart';
+import 'package:doctors_app/features/messages/ui/messages_screen.dart';
 import 'package:doctors_app/features/profile/logic/profile_cubit.dart';
 import 'package:doctors_app/features/profile/ui/profile_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,7 +50,7 @@ class _AppLayoutState extends State<AppLayout> {
           index: selectedIndex,
           children: const [
             HomeScreen(),
-            HomeScreen(),
+            MessagesScreen(),
             HomeScreen(),
             ProfileScreen(),
           ],
