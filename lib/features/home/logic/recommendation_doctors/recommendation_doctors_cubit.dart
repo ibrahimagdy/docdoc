@@ -118,7 +118,8 @@ class RecommendationDoctorsCubit extends Cubit<RecommendationDoctorsState> {
 
         _allDoctors = [..._allDoctors, ...newDoctors];
         final totalCount = data.doctorsData?.count ?? 0;
-        final hasMore = _allDoctors.length < totalCount;
+        final hasMore =
+            newDoctors.length >= _pageSize && _allDoctors.length < totalCount;
 
         emit(RecommendationDoctorsState.success(
           data,
